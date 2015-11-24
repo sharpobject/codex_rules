@@ -39,7 +39,7 @@ Player = class(function(self, specs)
 function Player:draw(n)
   n = n or 1
   for i=1,n do
-    if #self.deck == 0 then
+    if #self.deck == 0 and #self.discard > 0 then
       if self.remaining_reshuffles == nil then
         self.deck, self.discard = self.discard, self.deck
         shuffle(self.deck)
