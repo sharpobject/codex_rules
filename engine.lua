@@ -1,9 +1,11 @@
 require("cards")
 require("class")
+require("queue")
 
-Player = class(function(self, specs)
+Player = class(function(self, specs, idx)
     local main_spec = specs[1]
     assert(main_spec, "No specs provided")
+    self.idx = idx
     self.codex = {}
     self.discard = {}
     self.deck = {}
@@ -12,8 +14,10 @@ Player = class(function(self, specs)
     self.field = {}
     self.patrol = {}
     self.future = {}
-    self.trash = {}
     self.workers = 4
+    if self.idx > 1 then
+      self.workers = 5
+    end
     self.base_hp = 20
     for _,spec in ipairs(specs) do
       assert(spec_to_color[spec], spec .. " is not a spec")
@@ -57,4 +61,29 @@ function Player:draw(n)
   end
 end
 
-print(json.encode(Player({"Bashing", "Finesse"})))
+Game = class(function(self, specs1, specs2)
+    self.players = {Player(specs1, 1), Player(specs2, 2)}
+    self.extra_turns = 0
+    self.next_actions = Queue()
+    self.next_steps = Queue()
+    self.active_player = 0
+    self:start_turn(1)
+  end)
+
+function Game:start_turn(idx)
+  self.active_player = idx
+  self.next_steps:push("STEP_UPKEEP")
+end
+
+function Game:get_derived_state()
+  -- Get the derived state of the game
+  -- That's the state after applying ongoing effects and stuff
+  
+end
+
+function Game:update()
+
+  -- 
+end
+
+print(json.encode(Game({"Bashing"},{"Finesse"})))

@@ -139,7 +139,4 @@ for id,card in pairs(id_to_card) do
     assert(k ~= "abilities")
     card[k] = v
   end
-  print(json.encode(card))
 end
-
-print(json.encode(spec_to_color))
