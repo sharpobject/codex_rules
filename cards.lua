@@ -6,161 +6,161 @@ require("util")
 -- Everything except the abilities is pulled from the json file.
 
 id_to_card = {
-  NSUTM = {
+  NSTUTM = {
     name = "Timely Messenger",
     abilities = {"HASTE"},
   },
-  NSUTF = {
+  NSTUTF = {
     name = "Tenderfoot",
   },
-  NSUOB = {
+  NSTUOB = {
     name = "Older Brother",
   },
-  NSUBT = {
+  NSTUBT = {
     name = "Brick Thief",
     abilities = {"ARRIVES_TRIGGER_BRICK_THIEF"},
   },
-  NSUHT = {
+  NSTUHT = {
     name = "Helpful Turtle",
     abilities = {{"UPKEEP_TRIGGER_HEALING", 1}},
   },
-  NSUGF = {
+  NSTUGF = {
     name = "Granfalloon Flagbearer",
     abilities = {"FLAGBEARER"},
   },
-  NSUFN = {
+  NSTUFN = {
     name = "Fruit Ninja",
     abilities = {{"FRENZY", 1}},
   },
-  NSSSP = {
+  NSTSSP = {
     name = "Spark",
     abilities = {"SPELL_SPARK"},
   },
-  NSSBL = {
+  NSTSBL = {
     name = "Bloom",
     abilities = {"SPELL_BLOOM"},
   },
-  NSSWI = {
+  NSTSWI = {
     name = "Wither",
     abilities = {"SPELL_WITHER"},
   },
-  NBHTB = {
+  NBAHTB = {
     name = "Troq Bashar",
     mid_abilities = {{"ATTACK_TRIGGER_DAMAGE_BASE", 1}},
     max_abilities = {"READINESS"},
   },
-  NBSWB = {
+  NBASWB = {
     name = "Wrecking Ball",
     abilities = {"SPELL_WRECKING_BALL"},
   },
-  NBSTB = {
+  NBASTB = {
     name = "The Boot",
     abilities = {"SPELL_THE_BOOT"},
   },
-  NBSIN = {
+  NBASIN = {
     name = "Intimidate",
     abilities = {"SPELL_INTIMIDATE"},
   },
-  NBSFS = {
+  NBASFS = {
     name = "Final Smash",
     abilities = {"SPELL_FINAL_SMASH_0",
                   "SPELL_FINAL_SMASH_1",
                   "SPELL_FINAL_SMASH_2",},
   },
-  NBUIM = {
+  NBAUIM = {
     name = "Iron Man",
   },
-  NBURO = {
+  NBAURO = {
     name = "Revolver Ocelot",
     abilities = {"SPARKSHOT"},
   },
-  NBUSP = {
+  NBAUSP = {
     name = "Sneaky Pig",
     abilities = {"HASTE", "ARRIVES_TRIGGER_SNEAKY_PIG"},
   },
-  NBURR = {
+  NBAURR = {
     name = "Regular-sized Rhinoceros",
   },
-  NBUHS = {
+  NBAUHS = {
     name = "Hired Stomper",
     abilities = {"ARRIVES_TRIGGER_HIRED_STOMPER"},
   },
-  NBUES = {
+  NBAUES = {
     name = "Eggship",
     abilities = {"FLYING"},
   },
-  NBUHR = {
+  NBAUHR = {
     name = "Harvest Reaper",
     abilities = {"OVERPOWER"},
   },
-  NBUTD = {
+  NBAUTD = {
     name = "Trojan Duck",
     abilities = {{"ATTACK_TRIGGER_OBLITERATE", 2},
                   "ARRIVES_TRIGGER_TROJAN_DUCK",
                   "ATTACK_TRIGGER_TROJAN_DUCK",},
   },
-  NFHRM = {
+  NFIHRM = {
     name = "River Montoya",
     mid_abilities = {"TAP_SIDELINE_0_OR_1"},
     max_abilities = {"TECH_0_DISCOUNT"},
   },
-  NFSHR = {
+  NFISHR = {
     name = "Harmony",
     abilities = {},
   },
-  NFSDI = {
+  NFISDI = {
     name = "Discord",
     abilities = {},
   },
-  NFSTS = {
+  NFISTS = {
     name = "Two Step",
     abilities = {},
   },
-  NFSAS = {
+  NFISAS = {
     name = "Appel Stomp",
     abilities = {},
   },
-  NFUNF = {
+  NFIUNF = {
     name = "Nimble Fencer",
     abilities = {}
   },
-  NFUSS = {
+  NFIUSS = {
     name = "Star-Crossed Starlet",
     abilities = {}
   },
-  NFUGG = {
+  NFIUGG = {
     name = "Grounded Guide",
     abilities = {}
   },
-  NFUMA = {
+  NFIUMA = {
     name = "Maestro",
     abilities = {}
   },
-  NFUBS = {
+  NFIUBS = {
     name = "Backstabber",
     abilities = {}
   },
-  NFUCS = {
+  NFIUCS = {
     name = "Cloud Sprite",
     abilities = {}
   },
-  NFULL = {
+  NFIULL = {
     name = "Leaping Lizard",
     abilities = {}
   },
-  NFUBM = {
+  NFIUBM = {
     name = "Blademaster",
     abilities = {}
   },
-  NFUNF = {
+  NFIUNF = {
     name = "Nimble Fencer",
     abilities = {}
   },
-  NTUDN = {
+  NTOUDN = {
     name = "Dancer",
     abilities = {"MUSIC_TRIGGER_DANCER"},
   },
-  NTUAD = {
+  NTOUAD = {
     name = "Angry Dancer",
     abilities = {"UNSTOPPABLE"},
   },
