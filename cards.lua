@@ -1,5 +1,6 @@
 json = require("dkjson")
 require("util")
+require("stridx")
 
 -- Most card data from disguised_monkey can be reused here.
 -- So this is just the name and internal abilities.
@@ -176,19 +177,72 @@ for _,name in pairs(filenames) do
     if not name_to_card[card.name] then
       name_to_card[card.name] = card
     end
-    if card.spec then
-      if spec_to_color[card.spec] then
-        assert(spec_to_color[card.spec] == card.color)
+  end
+end
+
+local accept_fields = arr_to_set{
+    "ATK",
+    "ATK_1",
+    "ATK_2",
+    "ATK_3",
+    "HP",
+    "HP_1",
+    "HP_2",
+    "HP_3",
+    "color",
+    "cost",
+    "max_level",
+    "mid_level",
+    "spec",
+    "starting_zone",
+    "subtype",
+    "tech_level",
+    "type",
+  }
+for id,card in pairs(id_to_card) do
+  local read_card = name_to_card[card.name]
+  for k,v in pairs(read_card) do
+    if accept_fields[k] then
+      if type(v) == "string" then
+        v = v:lower()
       end
-      spec_to_color[card.spec] = card.color
+      card[k] = v
     end
   end
 end
 
 for id,card in pairs(id_to_card) do
-  local read_card = name_to_card[card.name]
-  for k,v in pairs(read_card) do
-    assert(k ~= "abilities")
-    card[k] = v
+  if card.spec then
+    if spec_to_color[card.spec] then
+      assert(spec_to_color[card.spec] == card.color)
+    end
+    spec_to_color[card.spec] = card.color
   end
+
+  if card.type == "hero" then
+    card.subtype = nil
+  end
+
+  local types = card.type:split(" ")
+  for k,v in ipairs(types) do
+    if v == "legendary" then
+      card.legendary = true
+    elseif v == "ongoing" then
+      card.ongoing = true
+    elseif v == "ultimate" then
+      card.ultimate = true
+    elseif v == "minor" then
+    else
+      card.type = v
+    end
+  end
+
+  if card.type == "unit" or card.type == "spell" then
+    local subtypes = {}
+    if card.subtype then
+      subtypes = card.subtype:split(" ")
+    end
+    card.subtypes = subtypes
+  end
+  card.subtype = nil
 end
