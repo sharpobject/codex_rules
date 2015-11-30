@@ -70,7 +70,9 @@ Game = class(function(self, specs1, specs2)
     self.players = {Player(specs1, 1, self), Player(specs2, 2, self)}
     self.field = {}
     self.extra_turns = 0
-    self.next_actions = Queue()
+    self.high_priority_triggers = Queue()
+    self.triggers = Queue()
+    self.low_priority_triggers = Queue()
     self.next_steps = Queue()
     self.active_player = 0
     self:start_turn(1)
@@ -126,14 +128,8 @@ local function get_basic_card_state(card)
   ret.spec = orig_card.spec
   ret.tech_level = orig_card.tech_level
 
-  if orig_card.subtypes then
-    ret.subtypes = {}
-    for k,v in ipairs(orig_card.subtypes) do
-      ret.subtypes[k] = v
-    end
-  end
-
-  ret.abilities = deepcpy(orig_card.abilities or {})
+  ret.subtypes = deepcpy(orig_card.subtypes)
+  ret.abilities = deepcpy(orig_card.abilities) or {}
 
   if orig_card.type == "hero" then
     ret.mid_level = orig_card.mid_level
@@ -152,17 +148,11 @@ local function get_basic_card_state(card)
     if ret.level >= ret.mid_level then
       ret.ATK = ret.ATK_2
       ret.HP = ret.HP_2
-      for _,ability in ipairs(orig_card.mid_abilities) do
-        ret.abilities[#ret.abilities+1] = deepcpy(ability)
-      end
     end
 
     if ret.level >= ret.max_level then
       ret.ATK = ret.ATK_3
       ret.HP = ret.HP_3
-      for _,ability in ipairs(orig_card.max_abilities) do
-        ret.abilities[#ret.abilities+1] = deepcpy(ability)
-      end
     end
   end
 
@@ -187,6 +177,11 @@ function Game:get_derived_state()
   for i=1,#self.field do
     ret.field[i] = get_basic_card_state(self.field[i])
   end
+
+  -- TODO: apply +1/+1 counters, -1/-1 counters,
+  -- TODO: apply ongoing effects like two step
+  -- TODO: have a working game
+
   return ret
 end
 

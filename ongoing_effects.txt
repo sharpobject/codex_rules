@@ -1,0 +1,33 @@
+ongoing effects (stuff that changes the attributes of a thing, not targeting
+restrictions/allowances/combat abilities) in the base set:
+
+TODO: add not just the base set
+
+(Final Smash) unit chosen at effect creation changes controllers permanently
+
+(Nimble Fencer) your Virtuosos get haste
+(Grounded Guide) all your units get +ATK and +HP
+(Maestro) your virtuosos gain an ability
+(Blademaster) your units and heroes gain an ability
+<drakk midband goes here>
+
+Frenzy
++1/+1 and -1/-1 runes
+(Sneaky Pig) unit chosen at effect creation gets stealth this turn
+(Intimidate) unit chosen at effect creation gets ATK -4 this turn
+(Discord) units chosen at effect creation get -ATK and -HP this turn
+(Two Step) units chosen at effect creation get +ATK and +HP while they are all in play
+(Star-crossed Starlet) this unit gets +1 ATK for each damage on it
+
+<midori midband +2/+2 and behind the ferns go here>
+
+(River Montoya) your tech 0 units cost 1 less to play
+(Maestro) your virtuosos cost 0 to play
+
+(Squad Leader) does literally nothing while the unit is in the patrol slot, but when it expires the unit loses 1 armor
+(Elite) unit gets +1 ATK while it is in the patrol slot
+(Lookout) unit gets Resist 1 while it is in the patrol slot
+
+Double newlines have meaning: stuff within one group of lines is applied in
+timestamp order, then the next group, until all groups are done. Except for
+midori and behind the ferns, which has its own special thing.

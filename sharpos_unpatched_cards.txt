@@ -1,0 +1,10 @@
+Neutral:
+Helpful Turtle (removed target icon)
+Backstabber (removed target icon)
+Grounded Guide (different art and clearer rules text)
+
+Purple:
+Research & Development (1 to draw 10 vs 2 to draw 5)
+
+Black:
+Skeletal Lord (exhaust 4 vs 5 skeletons)
