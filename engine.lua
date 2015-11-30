@@ -187,6 +187,7 @@ end
 
 function Game:update()
 
+  local derived_state = self:get_derived_state()
   -- 
 end
 
