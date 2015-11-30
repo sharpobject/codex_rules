@@ -106,7 +106,6 @@ end
 
 -- Just takes the internal state of a card and adds
 -- The stuff you would get by reading the card.
--- Doesn't apply ongoing effects or w/e.
 local function get_basic_card_state(card)
   local ret = {}
   if type(card) == "string" then
@@ -185,10 +184,79 @@ function Game:get_derived_state()
   return ret
 end
 
-function Game:update()
+local function get_state_based_actions()
+  --[[
+    Only the first section that has any actions gets its actions run.
 
-  local derived_state = self:get_derived_state()
-  -- 
+    This makes deaths that should be simultaneous simultaneous when you
+    cast Sickness targeting Doubling Barbarbarian with a +1/+1 rune
+    and some other thing...
+
+    It also ruins killing undying units with Sickness, but undying
+    is not an ability in Codex.
+
+    MtG has some sections we don't have but could:
+      - The legend rule in Codex does not allow two of the same Legend to
+        ever be under a player's control, so we don't need it here.
+        TODO: Make sure that's true with e.g. feral strike for 2x degrey
+      - The rule about auras not attached to things dying will probably be
+        handled by an action on the expiration of the effect that binds
+        an aura to a thing.
+  --]]
+
+
+  -- TODO
+  -- If a player has no base, the game is over.
+
+
+  -- TODO
+  -- If a token is in any zone other than in play, it ceases to exist.
+
+
+  -- TODO
+  -- If a unit or hero has both +1/+1 and -1/-1 runes, they cancel
+
+
+  -- TODO
+  -- If an effect says it should expire, it expires.
+  -- Some effects do stuff when they expire (other than just stop applying).
+  -- Effects that granted armor take armor away on expiration.
+  -- Aura effects (like Soul Stone) kill the attached spell card on expiration.
+
+
+  -- TODO
+  --[[
+    If a unit or hero or building has damage marked on it greater than or
+      equal to its HP, it dies.
+    If a unit or hero has just taken damage from a thing that has deathtouch,
+      it dies.
+    If it has the Glaxx ability and its controller has gold and
+      it has not just taken combat damage, it doesn't die.
+    If it has Soul Stone, instead do the Soul Stone thing.
+    If it has the Brave Knight ability and it has just taken combat damage,
+      it goes to the owner's hand.
+    If it is indestructible you do the indestructible thing instead.
+    If it is indestructible and has 0 or less HP and is already tapped,
+      and has no damage, nothing happens.
+  --]]
+
+
+  -- TODO
+  -- If a unit or hero is marked as "just took combat damage"
+  -- or "just took deathtouch damage", unmark it.
+end
+
+function Game:update()
+  local state = self:get_derived_state()
+  local actions = get_sate_based_actions(state)
+  while actions do
+    -- TODO
+    -- If the game is over, the game is over
+
+    self:apply_state_based_actions(actions)
+    state = self:get_derived_state()
+    actions = get_sate_based_actions(state)
+  end
 end
 
 print(json.encode(Game({"bashing"},{"finesse"}):get_derived_state()))
