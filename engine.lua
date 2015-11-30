@@ -207,6 +207,8 @@ local function get_state_based_actions()
 
   -- TODO
   -- If a player has no base, the game is over.
+  -- Note that some other abilities can cause the game to end,
+  -- So this isn't the only place where game over happens.
 
 
   -- TODO
@@ -230,14 +232,22 @@ local function get_state_based_actions()
       equal to its HP, it dies.
     If a unit or hero has just taken damage from a thing that has deathtouch,
       it dies.
+    The following two things apply to deaths in general, but we have to
+      do them here to make sure we don't make no-op state based actions.
+      (that would cause an infinite loop)
     If it has the Glaxx ability and its controller has gold and
       it has not just taken combat damage, it doesn't die.
-    If it has Soul Stone, instead do the Soul Stone thing.
-    If it has the Brave Knight ability and it has just taken combat damage,
-      it goes to the owner's hand.
-    If it is indestructible you do the indestructible thing instead.
     If it is indestructible and has 0 or less HP and is already tapped,
       and has no damage, nothing happens.
+
+    Here are some other things that replace dying in general, but which
+      we DON'T need code for here. The code for this stuff should go
+      somewhere else where it can handle all deathy things, including
+      doom grasp:
+        If it has Soul Stone, instead do the Soul Stone thing.
+        If it has the Brave Knight ability and it has just taken combat damage,
+          it goes to the owner's hand.
+        If it is indestructible you do the indestructible thing instead.
   --]]
 
 
