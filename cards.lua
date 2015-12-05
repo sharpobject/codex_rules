@@ -103,7 +103,7 @@ id_to_card = {
   NFIHRM = {
     name = "River Montoya",
     mid_abilities = {"TAP_SIDELINE_0_OR_1"},
-    max_abilities = {"TECH_0_DISCOUNT"},
+    max_abilities = {"CONT_COST_TECH_0_DISCOUNT"},
   },
   NFISHR = {
     name = "Harmony",
@@ -123,7 +123,7 @@ id_to_card = {
   },
   NFIUNF = {
     name = "Nimble Fencer",
-    abilities = {}
+    abilities = {"CONT_BUFF1_VIRTUOSO_HASTE"}
   },
   NFIUSS = {
     name = "Star-Crossed Starlet",

@@ -5,6 +5,8 @@ TODO: add not just the base set
 
 (Final Smash) unit chosen at effect creation changes controllers permanently
 
+<copy effects, faerie dragon, polymorph, and chaos mirror go here>
+
 (Nimble Fencer) your Virtuosos get haste
 (Grounded Guide) all your units get +ATK and +HP
 (Maestro) your virtuosos gain an ability
@@ -27,6 +29,8 @@ Frenzy
 (Squad Leader) does literally nothing while the unit is in the patrol slot, but when it expires the unit loses 1 armor
 (Elite) unit gets +1 ATK while it is in the patrol slot
 (Lookout) unit gets Resist 1 while it is in the patrol slot
+(Technician) unit gets dies: draw 1
+(Scavenger) unit gets dies: 1 gold
 
 Double newlines have meaning: stuff within one group of lines is applied in
 timestamp order, then the next group, until all groups are done. Except for
