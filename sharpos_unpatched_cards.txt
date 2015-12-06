@@ -39,7 +39,9 @@ Spectral Tiger (art)
 Spectral Roc (3 cost -> 4 cost)
 
 Red:
-TODO: red
+Marauder (art)
+Captured Bugblatter (art)
+Molting firebird (art)
 
 Black:
 TODO: black
