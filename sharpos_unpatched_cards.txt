@@ -44,5 +44,4 @@ Captured Bugblatter (art)
 Molting firebird (art)
 
 Black:
-TODO: black
 Skeletal Lord (exhaust 4 -> exhaust 5 skeletons)
