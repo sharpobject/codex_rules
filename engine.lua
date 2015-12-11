@@ -17,7 +17,6 @@ Player = class(function(self, specs, idx)
     if self.idx > 1 then
       self.workers = 5
     end
-    self.base_hp = 20
     self.id_to_next_uid = {}
     for _,spec in ipairs(specs) do
       assert(spec_to_color[spec], spec .. " is not a spec")
@@ -67,8 +66,11 @@ end
 
 Game = class(function(self, specs1, specs2)
     self.next_timestamp = 1
-    self.players = {Player(specs1, 1, self), Player(specs2, 2, self)}
+    self.players = {Player(specs1, 1), Player(specs2, 2)}
     self.field = {}
+    for idx, player in ipairs(self.players) do
+      self:to_field(player:make_card("NBABBA"))
+    end
     self.extra_turns = 0
     self.high_priority_triggers = Queue()
     self.triggers = Queue()
@@ -81,7 +83,7 @@ Game = class(function(self, specs1, specs2)
 function Player:make_card(card_id)
   local this_uid = self.id_to_next_uid[card_id] or 1
   local this_uid_str = this_uid .. ""
-  if card_id[2] == "T" then
+  if card_id:sub(2,3) == "TO" then
     while #this_uid_str < 5 do
       this_uid_str = "0" .. this_uid_str
     end
@@ -102,6 +104,20 @@ end
 function Game:start_turn(idx)
   self.active_player = idx
   self.next_steps:push("STEP_UPKEEP")
+end
+
+local function get_card_owner(card_uid)
+  return tonumber(card_uid[7])
+end
+
+function Game:to_field(card)
+  if type(card) == "string" then
+    card = {uid = card}
+  end
+  if not card.controller then
+    card.controller = get_card_owner(card)
+  end
+  self.field[#self.field+1] = card
 end
 
 -- Just takes the internal state of a card and adds

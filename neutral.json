@@ -534,6 +534,7 @@
         "color": "Neutral",
         "type": "Unit",
         "subtype": "Angry Dancer",
+        "cost": 0,
         "target_icon": false,
         "tech_level": 0,
         "ATK": 2,
@@ -548,6 +549,7 @@
         "color": "Neutral",
         "type": "Unit",
         "subtype": "Angry Dancer",
+        "cost": 0,
         "target_icon": false,
         "tech_level": 0,
         "ATK": 2,
@@ -562,6 +564,7 @@
         "color": "Neutral",
         "type": "Unit",
         "subtype": "Dancer",
+        "cost": 0,
         "target_icon": false,
         "tech_level": 0,
         "ATK": 0,
@@ -576,11 +579,92 @@
         "color": "Neutral",
         "type": "Unit",
         "subtype": "Dancer",
+        "cost": 0,
         "target_icon": false,
         "tech_level": 0,
         "ATK": 0,
         "HP": 1,
         "rules_text_1": "When you \"stop the music,\" flip this.",
         "sha1": "07e1d1bed57abebaadde20c8a3e95a7dc788beb7"
+    },
+    {
+        "name": "Base",
+        "starting_zone": "trash",
+        "color": "Neutral",
+        "type": "Building",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "HP": 20
+    },
+    {
+        "name": "Tech I Building",
+        "starting_zone": "trash",
+        "color": "Neutral",
+        "type": "Building",
+        "cost": 1,
+        "target_icon": false,
+        "tech_level": 0,
+        "HP": 5
+    },
+    {
+        "name": "Tech II Building",
+        "starting_zone": "trash",
+        "color": "Neutral",
+        "type": "Building",
+        "cost": 4,
+        "target_icon": false,
+        "tech_level": 1,
+        "HP": 5
+    },
+    {
+        "name": "Tech III Building",
+        "starting_zone": "trash",
+        "color": "Neutral",
+        "type": "Building",
+        "cost": 5,
+        "target_icon": false,
+        "tech_level": 2,
+        "HP": 5
+    },
+    {
+        "name": "Tech Lab",
+        "starting_zone": "trash",
+        "color": "Neutral",
+        "type": "Building",
+        "cost": 1,
+        "target_icon": false,
+        "tech_level": 0,
+        "HP": 4
+    },
+    {
+        "name": "Heroes' Hall",
+        "starting_zone": "trash",
+        "color": "Neutral",
+        "type": "Building",
+        "cost": 2,
+        "target_icon": false,
+        "tech_level": 0,
+        "HP": 4
+    },
+    {
+        "name": "Tower",
+        "starting_zone": "trash",
+        "color": "Neutral",
+        "type": "Building",
+        "cost": 3,
+        "target_icon": false,
+        "tech_level": 0,
+        "HP": 4
+    },
+    {
+        "name": "Surplus",
+        "starting_zone": "trash",
+        "color": "Neutral",
+        "type": "Building",
+        "cost": 5,
+        "target_icon": false,
+        "tech_level": 0,
+        "HP": 4
     }
 ]

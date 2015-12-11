@@ -7,6 +7,30 @@ require("stridx")
 -- Everything except the abilities is pulled from the json file.
 
 id_to_card = {
+  NBABBA = {
+    name = "Base",
+  },
+  NBABT1 = {
+    name = "Tech I Building",
+  },
+  NBABT2 = {
+    name = "Tech II Building",
+  },
+  NBABT3 = {
+    name = "Tech III Building",
+  },
+  NBABTL = {
+    name = "Tech Lab",
+  },
+  NBABHH = {
+    name = "Heroes' Hall",
+  },
+  NBABTW = {
+    name = "Tower",
+  },
+  NBABSU = {
+    name = "Surplus",
+  },
   NSTUTM = {
     name = "Timely Messenger",
     abilities = {"HASTE"},
@@ -19,7 +43,8 @@ id_to_card = {
   },
   NSTUBT = {
     name = "Brick Thief",
-    abilities = {"ARRIVES_TRIGGER_BRICK_THIEF"},
+    abilities = {"ARRIVES_TRIGGER_BRICK_THIEF", 
+                 "DIES_TRIGGER_BRICK_THIEF"},
   },
   NSTUHT = {
     name = "Helpful Turtle",
@@ -123,39 +148,39 @@ id_to_card = {
   },
   NFIUNF = {
     name = "Nimble Fencer",
-    abilities = {"CONT_BUFF1_VIRTUOSO_HASTE"}
+    abilities = {"CONT_BUFF1_VIRTUOSO_HASTE"},
   },
   NFIUSS = {
     name = "Star-Crossed Starlet",
-    abilities = {}
+    abilities = {},
   },
   NFIUGG = {
     name = "Grounded Guide",
-    abilities = {}
+    abilities = {},
   },
   NFIUMA = {
     name = "Maestro",
-    abilities = {}
+    abilities = {},
   },
   NFIUBS = {
     name = "Backstabber",
-    abilities = {}
+    abilities = {},
   },
   NFIUCS = {
     name = "Cloud Sprite",
-    abilities = {}
+    abilities = {},
   },
   NFIULL = {
     name = "Leaping Lizard",
-    abilities = {}
+    abilities = {},
   },
   NFIUBM = {
     name = "Blademaster",
-    abilities = {}
+    abilities = {},
   },
   NFIUNF = {
     name = "Nimble Fencer",
-    abilities = {}
+    abilities = {},
   },
   NTOUDN = {
     name = "Dancer",
