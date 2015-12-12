@@ -666,5 +666,17 @@
         "target_icon": false,
         "tech_level": 0,
         "HP": 4
+    },
+    {
+        "name": "Mercenary",
+        "starting_zone": "trash",
+        "color": "Neutral",
+        "type": "Unit",
+        "subtype": "Mercenary",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 1,
+        "HP": 1
     }
 ]
