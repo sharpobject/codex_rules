@@ -717,5 +717,54 @@
         "target_icon": false,
         "rules_text_1": "Each player sacrifices their weakest unit. (The lowest tech unit with the least ATK. You choose if there's a tie for least ATK.)",
         "sha1": "668e64b4ddebf8357c4fb4570066667eb5df8af5"
+    },
+    {
+        "name": "Warlock",
+        "starting_zone": "trash",
+        "color": "Black",
+        "type": "Unit",
+        "subtype": "Warlock",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 0,
+        "HP": 1
+    },
+    {
+        "name": "Skeleton",
+        "starting_zone": "trash",
+        "color": "Black",
+        "type": "Unit",
+        "subtype": "Skeleton",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 1,
+        "HP": 1
+    },
+    {
+        "name": "Zombie",
+        "starting_zone": "trash",
+        "color": "Black",
+        "type": "Unit",
+        "subtype": "Zombie",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 2,
+        "HP": 2
+    },
+    {
+        "name": "Horror",
+        "starting_zone": "trash",
+        "color": "Black",
+        "type": "Unit",
+        "subtype": "Horror",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 3,
+        "HP": 3,
+        "rules_text_1": "Deathtouch"
     }
 ]

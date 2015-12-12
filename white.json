@@ -705,5 +705,43 @@
         "target_icon": true,
         "rules_text_1": "Return an opposing hero to its command zone. If you do, put an available hero from that command zone into play. The exiting hero can't be summoned until after its owner's next turn.",
         "sha1": "67c338d840cce270a80f064ee767e686aa28c7a9"
+    },
+    {
+        "name": "Daigo Stormborne",
+        "starting_zone": "trash",
+        "color": "White",
+        "type": "Legendary Unit",
+        "subtype": "Ghost",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 8,
+        "HP": 8,
+        "rules_text_1": "Indestructible, untargetable, unstoppable, can't patrol."
+    },
+    {
+        "name": "Ninja",
+        "starting_zone": "trash",
+        "color": "White",
+        "type": "Unit",
+        "subtype": "Ninja",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 1,
+        "HP": 1
+    },
+    {
+        "name": "Bird",
+        "starting_zone": "trash",
+        "color": "White",
+        "type": "Unit",
+        "subtype": "Bird",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 1,
+        "HP": 1,
+        "rules_text_1": "Flying"
     }
 ]

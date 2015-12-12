@@ -716,5 +716,31 @@
         "target_icon": true,
         "rules_text_1": "Return a patrolling tech 0 or I unit with 2 ATK or less to its owner's hand.",
         "sha1": "8837e9e4b68eb2b2d0dafd2b89fa21200253dc91"
+    },
+    {
+        "name": "Stinger",
+        "starting_zone": "trash",
+        "color": "Purple",
+        "type": "Unit",
+        "subtype": "Stinger",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 1,
+        "HP": 1,
+        "rules_text_1": "Flying"
+    },
+    {
+        "name": "Mech",
+        "starting_zone": "trash",
+        "color": "Purple",
+        "type": "Unit",
+        "subtype": "Mech",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 6,
+        "HP": 7,
+        "rules_text_1": "Forecast 2, untargetable"
     }
 ]

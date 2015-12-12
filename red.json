@@ -661,7 +661,7 @@
         "HP": 2,
         "rules_text_1": "Haste (Can attack and play ⤵ abilities, if it had any, the turn it arrives.)",
         "rules_text_2": "+2 ATK when attacking buildings.",
-        "rules_text_3": "Can't patrol",
+        "rules_text_3": "Can't patrol.",
         "sha1": "8b8320d375904f106edc213e724359af60d722ee"
     },
     {
@@ -712,5 +712,30 @@
         "rules_text_1": "Deal 1 damage to a base. Steal ① from that player.",
         "rules_text_2": "If you have a Pirate, instead deal 2 damage and steal ②.",
         "sha1": "590868033ba948329acf2026a067dce923cf1e46"
+    },
+    {
+        "name": "Shark",
+        "starting_zone": "trash",
+        "color": "Red",
+        "type": "Unit",
+        "subtype": "Shark",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 3,
+        "HP": 1,
+        "rules_text_1": "Haste, ephemeral"
+    },
+    {
+        "name": "Pirate",
+        "starting_zone": "trash",
+        "color": "Red",
+        "type": "Unit",
+        "subtype": "Pirate",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 2,
+        "HP": 2
     }
 ]

@@ -751,5 +751,66 @@
         "rules_text_1": "Put a +1/+1 rune on a friendly unit or hero that doesn't have a +1/+1 rune.",
         "flavor_text": "The forest smiles upon thee.",
         "sha1": "4fad33a2d072dcd5a54af504e20797a18b428ae0"
+    },
+    {
+        "name": "Hunter",
+        "starting_zone": "trash",
+        "color": "Green",
+        "type": "Unit",
+        "subtype": "Hunter",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 3,
+        "HP": 3,
+        "rules_text_1": "Anti-air"
+    },
+    {
+        "name": "Beast",
+        "starting_zone": "trash",
+        "color": "Green",
+        "type": "Unit",
+        "subtype": "Beast",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 4,
+        "HP": 4
+    },
+    {
+        "name": "Frog",
+        "starting_zone": "trash",
+        "color": "Green",
+        "type": "Unit",
+        "subtype": "Frog",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 1,
+        "HP": 1
+    },
+    {
+        "name": "Squirrel",
+        "starting_zone": "trash",
+        "color": "Green",
+        "type": "Unit",
+        "subtype": "Squirrel",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 1,
+        "HP": 1
+    },
+    {
+        "name": "Wisp",
+        "starting_zone": "trash",
+        "color": "Green",
+        "type": "Unit",
+        "subtype": "Wisp",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 0,
+        "HP": 1
     }
 ]

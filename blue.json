@@ -706,5 +706,43 @@
         "target_icon": false,
         "rules_text_1": "One of your tech 0 or I units becomes a copy of another tech 0 or I unit until end of turn.",
         "sha1": "8d36ee2d2e0692d8c42b20c055de23a37d615d65"
+    },
+    {
+        "name": "Soldier",
+        "starting_zone": "trash",
+        "color": "Blue",
+        "type": "Unit",
+        "subtype": "Soldier",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 1,
+        "HP": 1,
+        "rules_text_1": "Sparkshot"
+    },
+    {
+        "name": "Mirror Illusion",
+        "starting_zone": "trash",
+        "color": "Blue",
+        "type": "Unit",
+        "subtype": "Mirror Illusion",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 0,
+        "HP": 1
+    },
+    {
+        "name": "Water Elemental",
+        "starting_zone": "trash",
+        "color": "Blue",
+        "type": "Unit",
+        "subtype": "Water Elemental",
+        "cost": 0,
+        "target_icon": false,
+        "tech_level": 0,
+        "ATK": 3,
+        "HP": 3,
+        "rules_text_1": "Anti-air"
     }
 ]
