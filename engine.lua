@@ -215,10 +215,38 @@ local function get_state_based_actions()
       - The legend rule in Codex does not allow two of the same Legend to
         ever be under a player's control, so we don't need it here.
         TODO: Make sure that's true with e.g. feral strike for 2x degrey
+      - Update: We DO need a legend rule here, because the expiration of a
+        copy effect could also cause a player to have 2 of the same legend.
+        So that sucks.
       - The rule about auras not attached to things dying will probably be
         handled by an action on the expiration of the effect that binds
         an aura to a thing.
   --]]
+
+
+  -- TODO
+  -- If a permanent is in play, ensure that it has an "arrived" timestamp,
+  -- a "came under control" timestamp, a "established identity" timestamp,
+  -- and for heroes mid level or higher, also timestamps for their mid and
+  -- max level abilities.
+  -- If the controller changed, the identity changed, or the hero leveled
+  -- down, update those timestamps appropriately.
+  -- This stuff won't have any UI effect so I think there's no need to use
+  -- the "command pattern" and we can just do it right here??
+
+
+  -- TODO
+  -- If a player has two or more of the same Legendary permanent,
+  -- all but one are trashed. The one that survives is the one that
+  -- has had that identity for the longest time.
+  -- So every permanent has to keep track of its last known identity
+  -- and how long it has had that.
+  -- (actually, only UNITS can copy things, so maybe all this stuff
+  -- is just for Legendary Units)
+
+
+  -- TODO
+  -- If a token is in any zone other than in play, it is trashed.
 
 
   -- TODO
@@ -228,18 +256,14 @@ local function get_state_based_actions()
 
 
   -- TODO
-  -- If a token is in any zone other than in play, it ceases to exist.
-
-
-  -- TODO
-  -- If a unit or hero has both +1/+1 and -1/-1 runes, they cancel
-
-
-  -- TODO
   -- If an effect says it should expire, it expires.
   -- Some effects do stuff when they expire (other than just stop applying).
   -- Effects that granted armor take armor away on expiration.
   -- Aura effects (like Soul Stone) kill the attached spell card on expiration.
+
+
+  -- TODO
+  -- If a unit or hero has both +1/+1 and -1/-1 runes, they cancel
 
 
   -- TODO
