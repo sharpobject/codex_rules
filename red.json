@@ -8,7 +8,7 @@
         "type": "Spell",
         "cost": 2,
         "target_icon": false,
-        "rules_text_1": "Swap the ATK of two units and/or heroes until end of turn.",
+        "rules_text_1": "Swap the printed ATK of two units and/or heroes until end of turn.",
         "sha1": "1d653b6142e3a771f5246c3b3b56d32e73020e08"
     },
     {
@@ -19,7 +19,7 @@
         "spec": "Anarchy",
         "type": "Spell",
         "cost": 3,
-        "target_icon": false,
+        "target_icon": true,
         "rules_text_1": "Trash a worker or building card (not add-on), then trash this card. (Trashed cards are removed from the game, not discarded.)",
         "pedantry": "\"not-addons\" is awkward and not consistent with Assimilate",
         "sha1": "976b197834ee808e93ebbf383c8cd1b9b4f9f7e0"
@@ -52,12 +52,12 @@
     },
     {
         "filename": "anarchy_tech1_a.jpg",
-        "name": "Calypso Gypsy",
+        "name": "Calypso Vystari",
         "starting_zone": "codex",
         "color": "Red",
         "spec": "Anarchy",
         "type": "Unit",
-        "subtype": "Gypsy",
+        "subtype": "Vagabond",
         "cost": 1,
         "target_icon": true,
         "tech_level": 1,
@@ -79,7 +79,8 @@
         "tech_level": 1,
         "ATK": 3,
         "HP": 3,
-        "rules_text_1": "Attacks a patroller: Gunpoint Taxman gets the patrol zone bonus of his victim this combat and they don't. (Scavenger and technician bonuses trigger on the death of the patroller, not the Taxman. He returns stolen armor after combat.)",
+        "rules_text_1": "Anti-air (Can attack fliers, but can ignore patrolling fliers. Deals combat damage to fliers it fights or that fly over this while it patrols.)",
+        "rules_text_2": "Whenever Gunpoint Taxman kills a patroller, steal ① from that player.",
         "sha1": "4e3c82ffddc87645923e718fced49cfdfe577dc8"
     },
     {
@@ -368,7 +369,7 @@
         "ATK": 6,
         "HP": 6,
         "rules_text_1": "Arrives: Summon three 2/2 red Pirate tokens.",
-        "rules_text_2": "Your units have \"Dies: deal 1 damage to each opposing base.\"",
+        "rules_text_2": "Your units have \"Dies: deal 1 damage to each opposing base. ◎\"",
         "rules_text_3": "You may play tech I or II Blood units for free and without any tech buildings.",
         "sha1": "b0fab3b391f1e7fbb7115cc6dfaafba2968f899e"
     },

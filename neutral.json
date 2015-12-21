@@ -295,11 +295,11 @@
         "type": "Unit",
         "subtype": "Thespian",
         "cost": 3,
-        "target_icon": true,
+        "target_icon": false,
         "tech_level": 2,
         "ATK": 3,
         "HP": 5,
-        "rules_text_1": "Your virtuosos cost ⓪ to play and gain \"⤵ → Deal 2 damage to a building.\"",
+        "rules_text_1": "Your virtuosos cost ⓪ to play and gain \"⤵ → Deal 2 damage to a building. ◎\"",
         "sha1": "4caffa996ddd93cc25ac5bdaf186fd197dda353d"
     },
     {
@@ -473,7 +473,7 @@
         "tech_level": 0,
         "ATK": 2,
         "HP": 2,
-        "rules_text_1": "Whenever an opponent plays a spell or ability that can ◎ a flagbearer, it must ◎ a flagbearer.",
+        "rules_text_1": "Whenever an opponent plays a spell or ability that can ◎ a flagbearer, it must ◎ a flagbearer at least once.",
         "sha1": "574aef3853c59daf725f4d3c57bea3f1eaef342c"
     },
     {
@@ -635,7 +635,8 @@
         "cost": 1,
         "target_icon": false,
         "tech_level": 0,
-        "HP": 4
+        "HP": 4,
+        "rules_text_1": "Unlock an additional spec."
     },
     {
         "name": "Heroes' Hall",
@@ -645,7 +646,8 @@
         "cost": 2,
         "target_icon": false,
         "tech_level": 0,
-        "HP": 4
+        "HP": 4,
+        "rules_text_1": "You may have an additional hero in play."
     },
     {
         "name": "Tower",
@@ -655,7 +657,9 @@
         "cost": 3,
         "target_icon": false,
         "tech_level": 0,
-        "HP": 4
+        "HP": 4,
+        "rules_text_1": "Detects stealth/invisible once per turn.",
+        "rules_text_2": "Deals 1 damage to each attacker (that it can see)."
     },
     {
         "name": "Surplus",
@@ -665,7 +669,8 @@
         "cost": 5,
         "target_icon": false,
         "tech_level": 0,
-        "HP": 4
+        "HP": 4,
+        "rules_text_1": "Upkeep: Draw a card."
     },
     {
         "name": "Mercenary",

@@ -641,7 +641,7 @@
         "tech_level": 0,
         "ATK": 2,
         "HP": 2,
-        "rules_text_1": "Whenever an opponent plays a spell or ability that can ◎ a flagbearer, it must ◎ a flagbearer.",
+        "rules_text_1": "Whenever an opponent plays a spell or ability that can ◎ a flagbearer, it must ◎ a flagbearer at least once.",
         "sha1": "839ef98fbbcbe3f082b48309d92b379c0379a436"
     },
     {

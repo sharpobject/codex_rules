@@ -66,7 +66,7 @@
         "tech_level": 1,
         "ATK": 0,
         "HP": 2,
-        "rules_text_1": "Indestructible (If this would die, exhaust it instead. You can't sacrifice it.)",
+        "rules_text_1": "Indestructible (If this would die, exhaust it and remove all damage from it instead. You can't sacrifice it.)",
         "rules_text_2": "Can't attack or patrol.",
         "rules_text_3": "① → Until your next upkeep, Gargoyle isn't indestructible, gains flying, +3 ATK, and it can attack and patrol. Once-per-turn.",
         "sha1": "1217a71cd2265e86b362fc58c813878e47b19578"
@@ -101,7 +101,7 @@
         "tech_level": 2,
         "ATK": 2,
         "HP": 6,
-        "rules_text_1": "Whenever an opponent attacks Voidblocker, they exhaust another of their units or heroes.",
+        "rules_text_1": "Whenever an opponent attacks Voidblocker, they exhaust another of their ready units or heroes.",
         "sha1": "1f33483808f28c8c4eacab508899a9f14691b229"
     },
     {

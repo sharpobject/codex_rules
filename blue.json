@@ -430,7 +430,7 @@
         "ATK": 2,
         "HP": 2,
         "rules_text_1": "(Illusions die when ◎ by spells or abilities.)",
-        "rules_text_2": "Whenever an opponent plays a spell or ability that can ◎ a flagbearer, it must ◎ a flagbearer.",
+        "rules_text_2": "Whenever an opponent plays a spell or ability that can ◎ a flagbearer, it must ◎ a flagbearer at least once.",
         "sha1": "b2fb80f6be0c7b08148c1c3c14783121eff4bbc5"
     },
     {
@@ -525,7 +525,7 @@
         "cost": 3,
         "target_icon": false,
         "tech_level": 2,
-        "rules_text_1": "Detector",
+        "rules_text_1": "Detector, haste",
         "rules_text_2": "Opponents play with their hands revealed.",
         "rules_text_3": "⤵ → Make a friendly unit invisible until your next upkeep.",
         "sha1": "bd89975197551b681a84e871d98a6120264231c6"

@@ -446,7 +446,7 @@
         "subtype": "Buff",
         "cost": 6,
         "target_icon": false,
-        "rules_text_1": "Your units get +3 ATK / +3 armor and overpower this turn. (Excess combat damage this would deal to a patroller hits something else this could attack.)",
+        "rules_text_1": "Your units get +3 ATK / +3 armor and overpower this turn. (Excess combat damage they would deal to a patroller hits something else they could attack.)",
         "flavor_text": "Nature stops for no man.",
         "sha1": "4a1ae575c956d6d22b5ff9de7b06a28b8b8fcb7c"
     },

@@ -124,7 +124,7 @@
         "max_level": 5,
         "ATK_3": 1,
         "HP_3": 5,
-        "max_text_1": "Whenever a non-token unit of yours arrives, you may make one of your Mirrors a copy of it. Trash that token when Quince or its original leaves."
+        "max_text_1": "Whenever a non-token unit of yours arrives, you may make one of your Mirrors an Illusion copy of it. Trash that token when Quince or its original leaves."
     },
     {
         "filename": "demonology_hero.jpg",
@@ -202,7 +202,7 @@
         "cost": 2,
         "ATK_1": 2,
         "HP_1": 2,
-        "base_text_1": "Haste (Can attack and play exhaust abilities the turn he arrives.)",
+        "base_text_1": "Haste (Can attack and play ⤵ abilities the turn he arrives.)",
         "mid_level": 3,
         "ATK_2": 3,
         "HP_2": 3,

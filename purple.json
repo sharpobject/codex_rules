@@ -10,7 +10,7 @@
         "target_icon": true,
         "rules_text_1": "Fading 3",
         "rules_text_2": "Attach to a unit. That unit is a flagbearer.",
-        "rules_text_3": "Whenever an opponent plays a spell or ability that can ◎ a flagbearer, it must ◎ a flagbearer.",
+        "rules_text_3": "Whenever an opponent plays a spell or ability that can ◎ a flagbearer, it must ◎ a flagbearer at least once.",
         "sha1": "516dddbca5e2e39e2be71aefc3c8a20da1c1fdbc"
     },
     {
@@ -263,7 +263,7 @@
         "ATK": 3,
         "HP": 2,
         "rules_text_1": "Sparkshot, anti-air",
-        "rules_text_2": "Prevent the first damage per turn that a spell or ability would deal to one of your patrollers.",
+        "rules_text_2": "Prevent the first damage per turn that a spell or ability would deal to one of your patrollers. (Choose randomly if multiple patrollers are damaged at once.)",
         "sha1": "70a64d7682e1b0ae5d8fdc834257e127e653a961"
     },
     {
@@ -463,7 +463,7 @@
         "ATK": 9,
         "HP": 7,
         "rules_text_1": "Forecast 6, Haste, untargetable",
-        "rules_text_2": "Sacrifice a unit, hero, worker, upgrade, or building → Remove a time rune from Omegacron while it's forecasted.",
+        "rules_text_2": "Sacrifice a unit, hero, worker, or building → Remove a time rune from Omegacron while it's forecasted.",
         "pedantry": "Why is Haste capitali\\zed?",
         "sha1": "e2f3e9ed188abcdcced7f79c6d09d0a798986251"
     },
