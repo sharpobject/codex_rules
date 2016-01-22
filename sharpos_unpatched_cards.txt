@@ -26,7 +26,6 @@ Void Star (art)
 Hive ("lost stinger")
 
 Blue:
-Injunction (art)
 Community Service (art)
 Elite Training (art)
 General's Hammer (art)
