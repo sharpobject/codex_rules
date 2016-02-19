@@ -5,7 +5,9 @@ TODO: add not just the base set
 
 (Final Smash) unit chosen at effect creation changes controllers permanently
 
-<copy effects, faerie dragon, polymorph, and chaos mirror go here>
+<copy effects, polymorph, and chaos mirror go here>
+
+<faerie dragon goes here>
 
 (Nimble Fencer) your Virtuosos get haste
 (Grounded Guide) all your units get +ATK and +HP
