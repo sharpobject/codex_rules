@@ -200,7 +200,7 @@ function Game:get_derived_state()
   return ret
 end
 
-local function get_state_based_actions()
+local function get_state_based_actions(state)
   --[[
     Only the first section that has any actions gets its actions run.
 
@@ -231,8 +231,9 @@ local function get_state_based_actions()
   -- max level abilities.
   -- If the controller changed, the identity changed, or the hero leveled
   -- down, update those timestamps appropriately.
-  -- This stuff won't have any UI effect so I think there's no need to use
-  -- the "command pattern" and we can just do it right here??
+  for k,v in pairs(state.field) do
+    
+  end
 
 
   -- TODO

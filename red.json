@@ -32,7 +32,7 @@
         "spec": "Anarchy",
         "type": "Spell",
         "subtype": "Summon",
-        "cost": 4,
+        "cost": 5,
         "target_icon": false,
         "rules_text_1": "Summon two 3/1 blue Shark tokens with haste and ephemeral. (They can attack right away but die at end of turn.)",
         "pedantry": "Add summon subtype?",
@@ -57,13 +57,13 @@
         "color": "Red",
         "spec": "Anarchy",
         "type": "Unit",
-        "subtype": "Vagabond",
+        "subtype": "Mystic",
         "cost": 1,
         "target_icon": true,
         "tech_level": 1,
         "ATK": 2,
         "HP": 2,
-        "rules_text_1": "Whenever you play a spell, this gets \"⤵ → Sideline a patroller\" that turn. (Move it out of the patrol zone.)",
+        "rules_text_1": "⤵ → If you played a spell this turn, sideline a patroller. (Move it out of the patrol zone.)",
         "sha1": "0aa1e8f04de472f9e4d52994a6306cc1fb12b75c"
     },
     {
@@ -115,7 +115,7 @@
         "HP": 3,
         "rules_text_1": "Haste",
         "rules_text_2": "Stealth (Can sneak past patrollers if that opponent has no detector.)",
-        "rules_text_3": "At the end of turn, return Chameleon Lizzo to your hand. (Return it only if it's still in play.)",
+        "rules_text_3": "At the end of turn, return Chameleon Lizzo to his owner's hand. (Return it only if it's still in play.)",
         "sha1": "9a32cd257c738aae4962277b9fc3cffc7bc9eb07"
     },
     {
@@ -489,7 +489,6 @@
         "HP": 3,
         "rules_text_1": "Long-range (Defenders without long-range deal no damage to this when it attacks.)",
         "rules_text_2": "Attacks: Deal 3 damage to that opponent's base.",
-        "pedantry": "\"The opposing base\" -> \"That opponent's base\" (like Troq)",
         "sha1": "02e5a18c2eec328831c385137ad2791ff0ae910c"
     },
     {
@@ -645,7 +644,7 @@
         "tech_level": 0,
         "ATK": 3,
         "HP": 2,
-        "rules_text_1": "End of turn: Return Bloodrage Ogre to your hand if he didn't arrive or attack this turn.",
+        "rules_text_1": "End of turn: Return Bloodrage Ogre to his owner's hand if he didn't arrive or attack this turn.",
         "sha1": "03c938647562479b11d66e0c2d052f50c79b90d2"
     },
     {
@@ -692,7 +691,7 @@
     },
     {
         "filename": "red_card_i.jpg",
-        "name": "Frenzy",
+        "name": "Charge",
         "starting_zone": "deck",
         "color": "Red",
         "type": "Minor Spell",

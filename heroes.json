@@ -36,7 +36,7 @@
         "mid_level": 4,
         "ATK_2": 2,
         "HP_2": 3,
-        "mid_text_1": "Attacks: Swift strike (Deals combat damage before units and heroes without swift strike.)",
+        "mid_text_1": "Attacks: Swift strike this turn. (Deals combat damage before units and heroes without swift strike.)",
         "max_level": 6,
         "ATK_3": 3,
         "HP_3": 4,
@@ -60,7 +60,7 @@
         "max_level": 8,
         "ATK_3": 4,
         "HP_3": 6,
-        "max_text_1": "Two Lives (If this would die, heal all damage on it and put a crumbling rune on it. While it has a crumbling rune, it can really die.)"
+        "max_text_1": "Two Lives (If this would die, heal all damage on it and put a crumbling rune on it instead. While it has a crumbling rune, it can really die.)"
     },
     {
         "filename": "law_hero.jpg",
@@ -157,7 +157,7 @@
         "type": "Hero",
         "subtype": "Plague Lord",
         "cost": 2,
-        "ATK_1": 2,
+        "ATK_1": 1,
         "HP_1": 3,
         "base_text_1": "Deals damage to units and heroes in the form of -1/-1 runes.",
         "mid_level": 4,
@@ -189,7 +189,7 @@
         "max_level": 7,
         "ATK_3": 3,
         "HP_3": 4,
-        "max_text_1": "Max Level: You may put a tech I or II unit from your discard pile into play if you meet the tech reqs for it."
+        "max_text_1": "Max Level: You may put a tech I or II unit that costs ⑤ or less from your discard pile into play if you meet the tech reqs for it."
     },
     {
         "filename": "anarchy_hero.jpg",
@@ -203,15 +203,15 @@
         "ATK_1": 2,
         "HP_1": 2,
         "base_text_1": "Haste (Can attack and play ⤵ abilities the turn he arrives.)",
-        "mid_level": 3,
+        "mid_level": 4,
         "ATK_2": 3,
         "HP_2": 3,
-        "mid_text_1": "Whenever you kill a scavenger, get ①.",
-        "mid_text_2": "Whenever you kill a technician, draw a card.",
+        "mid_text_1": "Whenever Zane kills a scavenger, get ①.",
+        "mid_text_2": "Whenever Zane kills a technician, draw a card.",
         "max_level": 6,
         "ATK_3": 4,
         "HP_3": 4,
-        "max_text_1": "⤵ → Put a bomb in an empty patrol slot. It detonates and deals 3 damage to any unit or hero who enters it."
+        "max_text_1": "Max level: Shove a patroller to an empty slot in its patrol zone, then deal 1 damage to it. ◎"
     },
     {
         "filename": "blood_hero.jpg",
@@ -232,7 +232,7 @@
         "max_level": 6,
         "ATK_3": 3,
         "HP_3": 4,
-        "max_text_1": "The first unit you play each turn gets haste."
+        "max_text_1": "The first unit that arrives from your hand each turn gets haste."
     },
     {
         "filename": "fire_hero.jpg",
@@ -273,7 +273,7 @@
         "max_level": 8,
         "ATK_3": 4,
         "HP_3": 5,
-        "max_text_1": "Flying"
+        "max_text_1": "During your turn: Flying"
     },
     {
         "filename": "feral_hero.jpg",
@@ -359,7 +359,7 @@
         "max_level": 5,
         "ATK_3": 3,
         "HP_3": 4,
-        "max_text_1": "Max Level: You may trash a friendly unit then return it to play. It gains haste this turn."
+        "max_text_1": "Max Level: You may trash a friendly unit then return it to play. ◎"
     },
     {
         "filename": "future_hero.jpg",
@@ -377,11 +377,11 @@
         "mid_level": 5,
         "ATK_2": 3,
         "HP_2": 3,
-        "mid_text_1": "⤵ → Play the top card of your draw pile as if it were in your hand. (You still pay for it.)",
+        "mid_text_1": "⤵ → Play the top card of your draw pile. (You still pay for it and must meet the reqs for it.)",
         "max_level": 7,
         "ATK_3": 3,
         "HP_3": 5,
-        "max_text_1": "Max Level: Summon a 6/7 purple Mech token with forcast 2 that's untargetable. (It will arrive in two turns.)"
+        "max_text_1": "Max Level: Summon a 6/7 purple Mech token with forecast 2 that's untargetable. (It will arrive in two turns.)"
     },
     {
         "filename": "bashing_hero.jpg",
@@ -417,7 +417,7 @@
         "mid_level": 3,
         "ATK_2": 2,
         "HP_2": 4,
-        "mid_text_1": "⤵ → Sideline a tech 0 or I patroller. (Move it out of the patrol zone.) ◎",
+        "mid_text_1": "⤵ → Sideline a tech 0 or tech I patroller. (Move it out of the patrol zone.) ◎",
         "max_level": 5,
         "ATK_3": 3,
         "HP_3": 4,

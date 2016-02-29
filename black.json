@@ -50,7 +50,7 @@
         "cost": 6,
         "target_icon": false,
         "rules_text_1": "Sacrifice all units you control.",
-        "rules_text_2": "Your heroes level to max and become Demons. Put two +1/+1 runes on each, they get readiness, and are invisible until they leave play.",
+        "rules_text_2": "Your non-Demon heroes level to max and become Demons. Put two +1/+1 runes on each, they get readiness, and are invisible until they leave play.",
         "sha1": "90689e60e619caaafd8513c9daca41e41aaa7d1d"
     },
     {
@@ -66,7 +66,7 @@
         "tech_level": 1,
         "ATK": 0,
         "HP": 2,
-        "rules_text_1": "Indestructible (If this would die, exhaust it and remove all damage from it instead. You can't sacrifice it.)",
+        "rules_text_1": "Indestructible (If this would die, exhaust it and remove all damage and attachments from it instead. You can't sacrifice it.)",
         "rules_text_2": "Can't attack or patrol.",
         "rules_text_3": "① → Until your next upkeep, Gargoyle isn't indestructible, gains flying, +3 ATK, and it can attack and patrol. Once-per-turn.",
         "sha1": "1217a71cd2265e86b362fc58c813878e47b19578"
@@ -146,7 +146,7 @@
         "spec": "Demonology",
         "type": "Legendary Unit",
         "subtype": "Demon Overlord",
-        "cost": 7,
+        "cost": 6,
         "target_icon": false,
         "tech_level": 2,
         "ATK": 15,
@@ -184,9 +184,8 @@
         "tech_level": 3,
         "ATK": 11,
         "HP": 11,
-        "rules_text_1": "Arrives from your hand: Destroy a unit, hero, worker, upgrade, or ongoing spell.",
-        "rules_text_2": "Untargetable",
-        "rules_text_3": "Obliterate 4 (Whenever this attacks, destroy the defender's four lowest tech units first.)",
+        "rules_text_1": "Arrives: If you played Zarramonde from your hand, destroy a unit, hero, worker, upgrade, or ongoing spell.",
+        "rules_text_2": "Untargetable, obliterate 4 (Whenever this attacks, destroy the defender's four lowest tech units first.)",
         "sha1": "15dbf033d017dff823e4d961f1c417e376dfdffe"
     },
     {
@@ -235,7 +234,7 @@
         "spec": "Disease",
         "type": "Ultimate Spell",
         "subtype": "Debuff",
-        "cost": 7,
+        "cost": 8,
         "target_icon": false,
         "rules_text_1": "Give all an opponent's units and heroes -3/-3 this turn. Deal 3 damage to all their buildings.",
         "sha1": "8dbedae3d33b05991703635a0c3f13970bce1e7c"
@@ -281,7 +280,7 @@
         "spec": "Disease",
         "type": "Unit",
         "subtype": "Horror",
-        "cost": 2,
+        "cost": 3,
         "target_icon": false,
         "tech_level": 2,
         "ATK": 2,
@@ -368,8 +367,9 @@
         "tech_level": 3,
         "ATK": 4,
         "HP": 7,
-        "rules_text_1": "Each player's upkeep: Put a -1/-1 rune on each opposing unit and hero. Each player's base takes 1 damage for each -1/-1 rune on their units and heroes.",
-        "rules_text_2": "Resist 2",
+        "rules_text_1": "Arrives or attacks: Put a -1/-1 rune on each opposing unit and hero.",
+        "rules_text_2": "Upkeep: Each player's base takes 1 damage for each -1/-1 rune on their units and heroes.",
+        "rules_text_3": "Resist 2",
         "sha1": "f925a2b06a41e2f33a47d0081bc93b9076f19bf7"
     },
     {
@@ -380,7 +380,7 @@
         "spec": "Necromancy",
         "type": "Spell",
         "subtype": "Debuff",
-        "cost": 2,
+        "cost": 1,
         "target_icon": true,
         "rules_text_1": "One hero loses two levels and can't level up this turn. Another hero gains two levels. (Heroes can't go below level 1 or above their max level.)",
         "sha1": "7ff512a7ac075f148e96e2b55ac9122f395fc49a"
@@ -590,8 +590,9 @@
         "tech_level": 0,
         "ATK": 1,
         "HP": 1,
-        "rules_text_1": "Unstoppable (Can ignore patrollers when attacking.)",
-        "rules_text_2": "Can't patrol or have more than 1 ATK.",
+        "rules_text_1": "Unstoppable but can't patrol (Can ignore patrollers when attacking.)",
+        "rules_text_2": "Can't be sacrificed.",
+        "rules_text_3": "Can't have more than 1 ATK.",
         "sha1": "4ff2b13f1c0ea525741c5df59149ab5f86777a84"
     },
     {
@@ -622,7 +623,7 @@
         "tech_level": 0,
         "ATK": 2,
         "HP": 1,
-        "rules_text_1": "Attacks: Gains armor piercing and deals damage to units and heroes in the form of -1/-1 runes.",
+        "rules_text_1": "Attacks: Gets armor piercing and deals damage to units and heroes in the form of -1/-1 runes this turn.",
         "sha1": "284eecf3105b06ed78c263d17a9d820f682d4329"
     },
     {
@@ -652,9 +653,9 @@
         "target_icon": false,
         "tech_level": 0,
         "ATK": 3,
-        "HP": 4,
+        "HP": 3,
         "rules_text_1": "Overpower (Excess combat damage this would deal to a patroller hits something else this could attack.)",
-        "rules_text_2": "Dies from combat damage: Sacifice all your units except for Demons.",
+        "rules_text_2": "Dies from combat damage: Destroy all your units except for Demons.",
         "sha1": "602441a1dd7be5f8869b4406db040afd2d3e3890"
     },
     {
@@ -667,8 +668,8 @@
         "target_icon": false,
         "tech_level": 0,
         "HP": 3,
-        "rules_text_1": "Whenever your non-token units die, bury them here. Sacrifice Graveyard when four or more units are buried in it (and trash those units).",
-        "rules_text_2": "⤵ → Play a buried unit as if it were in your hand. (You still pay for it.)",
+        "rules_text_1": "Whenever your non-token units die, bury them here. Sacrifice Graveyard when four or more units are buried in it (and discard those units).",
+        "rules_text_2": "⤵ → Play a buried unit. (You still pay for it and must meet the tech reqs for it.)",
         "sha1": "b98e97e8e289f3fcf019013f448c171d30c44b91"
     },
     {

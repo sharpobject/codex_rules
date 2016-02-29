@@ -8,8 +8,7 @@
         "type": "Spell",
         "cost": 2,
         "target_icon": false,
-        "rules_text_1": "Units can't attack or deal combat damage until your next turn.",
-        "rules_text_2": "Your units can't patrol this turn.",
+        "rules_text_1": "Until your next turn, your units can't patrol and opposing units can't attack you.",
         "flavor_text": "The air was still. A tranquil energy surrounded them. They laid down their weapons, even though it seemed unwise.",
         "sha1": "1eeaeba7c4cc457ade50324253275a4763d9a62b"
     },
@@ -46,8 +45,9 @@
         "color": "Green",
         "spec": "Balance",
         "type": "Ongoing Ultimate Spell",
+        "subtype": "Buff",
         "cost": 3,
-        "target_icon": false,
+        "target_icon": true,
         "rules_text_1": "Attach to your Balance hero.",
         "rules_text_2": "He gets +3/+3, readiness, resist 1, and draws a card when he attacks.",
         "rules_text_3": "Summon two 3/3 green Hunter tokens with anti-air for an opponent, so that it's fair.",
@@ -66,8 +66,8 @@
         "tech_level": 1,
         "ATK": 0,
         "HP": 1,
-        "rules_text_1": "Flying",
-        "rules_text_2": "Can't attack.",
+        "rules_text_1": "Flying but can't attack.",
+        "rules_text_2": "Resist 1",
         "rules_text_3": "Upkeep: Gain ①",
         "flavor_text": "These owls can spot a mouse a mile away and shiny treasures from two.",
         "sha1": "500a53261ca66c5c4a11dec0972090f87e2e931b"
@@ -232,7 +232,7 @@
         "spec": "Feral",
         "type": "Spell",
         "subtype": "Summon",
-        "cost": 4,
+        "cost": 5,
         "target_icon": false,
         "rules_text_1": "Boost ④ (You may pay an additional ④ when you play this to get the boost effect.)",
         "rules_text_2": "Choose one: Summon a 4/4 green Beast token; or summon four 1/1 green Frog tokens.",
@@ -318,7 +318,7 @@
         "ATK": 4,
         "HP": 4,
         "rules_text_1": "Predator Tiger is unstoppable by tech 0 units. (Can ignore tech 0 patrollers when attacking.)",
-        "rules_text_2": "Whenever Predator Tiger deals combat damage to a base, destroy a worker at that base.",
+        "rules_text_2": "Whenever Predator Tiger deals combat damage to a base, trash a worker at that base.",
         "sha1": "262a40b1af18c348d6e4a572b5aa539822e18b77"
     },
     {
@@ -446,7 +446,7 @@
         "subtype": "Buff",
         "cost": 6,
         "target_icon": false,
-        "rules_text_1": "Your units get +3 ATK / +3 armor and overpower this turn. (Excess combat damage they would deal to a patroller hits something else they could attack.)",
+        "rules_text_1": "Your units get +3 ATK / +3 armor this turn. Excess combat damage they would deal to units and heroes hits that opponent's base. (This takes precedence over overpower.)",
         "flavor_text": "Nature stops for no man.",
         "sha1": "4a1ae575c956d6d22b5ff9de7b06a28b8b8fcb7c"
     },
@@ -531,7 +531,7 @@
         "ATK": 2,
         "HP": 4,
         "rules_text_1": "Whenever another unit or hero of yours arrives, put a +1/+1 rune on this.",
-        "rules_text_2": "⓪ → Move a +1/+1 rune from Blooming Ancient to another unit.",
+        "rules_text_2": "Remove a +1/+1 rune → Put a +1/+1 rune on another unit.",
         "flavor_text": "Its growth can really get out of control.",
         "sha1": "8f3d543a0729446e61e9fb3213f14db739827652"
     },
@@ -546,9 +546,9 @@
         "cost": 3,
         "target_icon": true,
         "tech_level": 2,
-        "HP": 5,
+        "HP": 4,
         "rules_text_1": "Your units and heroes with +1/+1 runes have overpower.",
-        "rules_text_2": "⤵ → Put three +1/+1 runes on a unit or hero.",
+        "rules_text_2": "⤵ → Put three +1/+1 runes on a unit or one on a hero if that unit or hero doesn't have any +1/+1 runes.",
         "sha1": "8e2d0b6ea3ab412f789cd80295e7c23cc36894d1"
     },
     {
@@ -694,7 +694,7 @@
         "ATK": 0,
         "HP": 1,
         "rules_text_1": "Arrives: Put two +1/+1 runes on this.",
-        "rules_text_2": "① or ⤵ → Move a +1/+1 rune from Spore Shambler to another unit.",
+        "rules_text_2": "① or ⤵, then remove a +1/+1 rune → Put a +1/+1 rune on another unit.",
         "sha1": "6f4c66569959980d05e01fc52358d9197f1741ba"
     },
     {
@@ -719,7 +719,7 @@
         "starting_zone": "deck",
         "color": "Green",
         "type": "Upgrade",
-        "cost": 2,
+        "cost": 3,
         "target_icon": false,
         "tech_level": 0,
         "rules_text_1": "You may hire workers for free.",

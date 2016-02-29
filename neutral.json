@@ -9,6 +9,7 @@
         "cost": 0,
         "target_icon": true,
         "rules_text_1": "Deal 2 damage to a building.",
+        "flavor_text": "Wrecked.",
         "pedantry": "Add burn subtype?",
         "sha1": "e997e8704046d8cdd81834a2d6404c75be193cce"
     },
@@ -23,6 +24,7 @@
         "cost": 3,
         "target_icon": true,
         "rules_text_1": "Destroy a tech 0 or tech I unit. (Heroes aren't units.)",
+        "flavor_text": "When you get the boot, you're out.",
         "sha1": "6c6929d4e2967552f6e7fc095819b82c3a4d1bb0"
     },
     {
@@ -36,6 +38,7 @@
         "cost": 1,
         "target_icon": true,
         "rules_text_1": "Give a unit or hero -4 ATK this turn.",
+        "flavor_text": "Ready to fight now??",
         "sha1": "6e8e9a3aec0ea13651277b2b28ac515bf3e94a98"
     },
     {
@@ -49,6 +52,7 @@
         "cost": 6,
         "target_icon": true,
         "rules_text_1": "Destroy a tech 0 unit, return a tech I unit to its owner's hand, and gain control of a tech II unit.",
+        "flavor_text": "Troq Smash!",
         "sha1": "97f50b04f78051451677c69f4bcd9db3b7dca3b1"
     },
     {
@@ -64,6 +68,7 @@
         "tech_level": 1,
         "ATK": 3,
         "HP": 4,
+        "flavor_text": "\"I'm Iron Man.\"",
         "sha1": "0076089916e8a3fd259ea29557c7341d420ae35a"
     },
     {
@@ -80,6 +85,7 @@
         "ATK": 3,
         "HP": 3,
         "rules_text_1": "Sparkshot (When attacking a patroller, deals 1 damage to an adjacent patroller.)",
+        "flavor_text": "What's an ocelot, anyway?",
         "sha1": "8219f2d317f52fd1505b9d514e9fcb366d42d2ef"
     },
     {
@@ -96,6 +102,7 @@
         "ATK": 4,
         "HP": 3,
         "rules_text_1": "Arrives: Deal 3 damage to a unit. (Heroes aren't units.)",
+        "flavor_text": "\"Ragoroggggg! Hssssss!\"",
         "sha1": "cc4f1114f0079e148342ab4961268607e3a5debb"
     },
     {
@@ -111,6 +118,7 @@
         "tech_level": 2,
         "ATK": 5,
         "HP": 6,
+        "flavor_text": "As rhinoceroses go, this rhinoceros is a similar size to most rhinoceroses.",
         "sha1": "a1b12d136baf6db0fc99dc47c5032618095fe661"
     },
     {
@@ -128,6 +136,7 @@
         "HP": 3,
         "rules_text_1": "Haste",
         "rules_text_2": "Arrives: Gets stealth this turn. (Can sneak past patrollers if that opponent has no detector.)",
+        "flavor_text": "Have you ever seen a sneaky pig? Exactly.",
         "sha1": "014704577ce134720e070ac3d0fe8ff7b977a898"
     },
     {
@@ -144,6 +153,7 @@
         "ATK": 4,
         "HP": 3,
         "rules_text_1": "Flying (Can fly over ground patrollers. Ground forces without anti-air can't attack this or deal combat damage to it when attacked.)",
+        "flavor_text": "This somewhat-safe mode of transportation has been converted to a warship.",
         "sha1": "0c0ab0ea15ade112fbd9819e07717481ee2463b4"
     },
     {
@@ -160,6 +170,7 @@
         "ATK": 6,
         "HP": 5,
         "rules_text_1": "Overpower (Excess combat damage this would deal to a patroller hits something else this could attack.)",
+        "flavor_text": "It reaps the fields. It reaps you.",
         "sha1": "1ab07bd270a92ec8f20be28fb1cb1a5ceb630ead"
     },
     {
@@ -177,6 +188,7 @@
         "HP": 9,
         "rules_text_1": "Obliterate 2 (Whenever this attacks, destroy the defender's two lowest tech units first.)",
         "rules_text_2": "Arrives or attacks: Deal 4 damage to a building.",
+        "flavor_text": "This weapon of war was disguised as a gift. It didn't fool many.",
         "sha1": "e8f279f3600e3425882fca45e99cdcd998fdf3b8"
     },
     {
@@ -205,6 +217,7 @@
         "cost": 2,
         "target_icon": false,
         "rules_text_1": "Give all of an opponent's tech 0 and I units -2/-1 until end of turn.",
+        "flavor_text": "CLANG!",
         "sha1": "0286e01d25cb2a7442925aaf1a8a2a9c800ea71e"
     },
     {
@@ -213,11 +226,13 @@
         "starting_zone": "codex",
         "color": "Neutral",
         "spec": "Finesse",
-        "type": "Spell",
+        "type": "Ongoing Spell",
         "subtype": "Buff",
         "cost": 2,
-        "target_icon": false,
-        "rules_text_1": "Two of your units become dance partners if they aren't partnered already. While you control both, they each get +2/+2. (If you lose one, the other is no longer a \"partner.\")",
+        "target_icon": true,
+        "rules_text_1": "Channeling (Stays in play. Sacrifice it when you lose your Finesse hero.)",
+        "rules_text_2": "Two of your units become dance partners if they aren't partnered already. While you control both, they each get +2/+2. If you lose one, sacrifice Two Step.",
+        "flavor_text": "The two units had a special time together.",
         "sha1": "063d6625ef2fa28dbb4f7e37c85c304ea3c99eb0"
     },
     {
@@ -231,6 +246,7 @@
         "cost": 1,
         "target_icon": true,
         "rules_text_1": "Sideline a patroller (move it out of the patrol zone), draw a card, then you may put Appel Stomp on top of your draw pile.",
+        "flavor_text": "\"Appel\" is a kind of stomp in fencing. Apples are different.",
         "sha1": "0e287ef09c437527bbf27b48862c436c7ed167c8"
     },
     {
@@ -247,6 +263,7 @@
         "ATK": 2,
         "HP": 3,
         "rules_text_1": "Your virtuosos have haste. (Can attack and ⤵ the turn they arrive.)",
+        "flavor_text": "\"En Garde!\"",
         "pedantry": "Fix haste reminder text to not use symbol?",
         "sha1": "adc3af620fdcc1e4c72a9812a5231910ce2dd3bd"
     },
@@ -265,6 +282,7 @@
         "HP": 2,
         "rules_text_1": "Upkeep: This takes 1 damage.",
         "rules_text_2": "This gets +1 ATK for each damage on her.",
+        "flavor_text": "\"Now's your time to shine.\"",
         "pedantry": "\"This\" vs \"her\"",
         "sha1": "5a04512c2e4f9c4ab95469fc9ba0165552cc458d"
     },
@@ -283,6 +301,7 @@
         "HP": 4,
         "rules_text_1": "Your other units get +1 ATK.",
         "rules_text_2": "Your Virtuosos get +2/+1, instead.",
+        "flavor_text": "He'll teach you the fundamentals.",
         "pedantry": "Remove comma?",
         "sha1": "ed45be70419fe1cf1f923a39d3d688eb18d021f3"
     },
@@ -300,6 +319,7 @@
         "ATK": 3,
         "HP": 5,
         "rules_text_1": "Your virtuosos cost ⓪ to play and gain \"⤵ → Deal 2 damage to a building. ◎\"",
+        "flavor_text": "His enthusiasm is infectious.",
         "sha1": "4caffa996ddd93cc25ac5bdaf186fd197dda353d"
     },
     {
@@ -316,6 +336,7 @@
         "ATK": 3,
         "HP": 3,
         "rules_text_1": "Invisible (To opponents without a detector, this is untargetable, unattackable, and can sneak past patrollers. While patrolling, this is attackable.)",
+        "flavor_text": "Don't let him slip behind you.",
         "sha1": "ad87e11c185cab541e4d0b26cc8c1aacc60c7955"
     },
     {
@@ -332,6 +353,7 @@
         "ATK": 3,
         "HP": 2,
         "rules_text_1": "Flying (Can fly over ground patrollers. Ground forces without anti-air can't attack this or deal combat damage to it when attacked.)",
+        "flavor_text": "She dances in the sky, avoiding the hassles of the ground.",
         "sha1": "c3b42d0da0352deb709dd2e7123b9d8cbca7a94c"
     },
     {
@@ -348,6 +370,7 @@
         "ATK": 3,
         "HP": 5,
         "rules_text_1": "Anti-air (Can attack fliers, but can ignore patrolling fliers. Deals combat damage to fliers it fights or that fly over this while it patrols.)",
+        "flavor_text": "He can reach for the sky.",
         "sha1": "fd4465cf10890a3ed6a514c9ee421cf8e81746b7"
     },
     {
@@ -364,6 +387,7 @@
         "ATK": 7,
         "HP": 5,
         "rules_text_1": "Your units and heroes have swift strike. (They deal combat damage before units and heroes without swift strike.)",
+        "flavor_text": "It'll be over before you know it started.",
         "sha1": "b92dbe4879574e7e614915da4ec40d8a679f0c57"
     },
     {
@@ -399,6 +423,7 @@
         "ATK": 1,
         "HP": 1,
         "rules_text_1": "Haste (Can attack and play ⤵ abilities, if he had any, the turn he arrives.)",
+        "flavor_text": "\"I'm never late.\"",
         "pedantry": "Fix haste reminder text to not use symbol?",
         "sha1": "e700e92df8536862c06bdaf96d7e48132c2cdd59"
     },
@@ -414,6 +439,7 @@
         "tech_level": 0,
         "ATK": 1,
         "HP": 2,
+        "flavor_text": "\"I practice every day. I'm rapidly improving. At this rate, I'll be a Blademaster in no time. Sometimes I have bad days though. Like last week my dog ran away.\"",
         "sha1": "0e5f7afe9a97d7005b06ce5893c99bd69cb33dec"
     },
     {
@@ -428,6 +454,7 @@
         "tech_level": 0,
         "ATK": 2,
         "HP": 2,
+        "flavor_text": "\"You said what about my little brother?\"",
         "sha1": "6d5281a0392652cfb8bac70da5b14de8a1a11383"
     },
     {
@@ -442,8 +469,9 @@
         "tech_level": 0,
         "ATK": 2,
         "HP": 1,
-        "rules_text_1": "Arrives: Deal 1 damage to a building. Repair 1 damage from another building.",
-        "rules_text_2": "Dies: Return Brick Thief to your hand.",
+        "rules_text_1": "Arrives or attacks: Deal 1 damage to a building and repair 1 damage from another building.",
+        "rules_text_2": "Resist 1 (Opponents must pay ① each time they would ◎ this with a spell or ability.)",
+        "flavor_text": "He has sometimes regretted not being a feather thief.",
         "sha1": "9bda37e15db5c295321dc27d16a1568a862c493c"
     },
     {
@@ -459,6 +487,7 @@
         "ATK": 1,
         "HP": 2,
         "rules_text_1": "Healing 1 (During your upkeep, heal 1 damage from all friendly units and heroes.)",
+        "flavor_text": "\"I'm helping.\"",
         "sha1": "9e79a0627d33ce91fd1857f096aaa8d475416c91"
     },
     {
@@ -474,6 +503,7 @@
         "ATK": 2,
         "HP": 2,
         "rules_text_1": "Whenever an opponent plays a spell or ability that can ◎ a flagbearer, it must ◎ a flagbearer at least once.",
+        "flavor_text": "\"My flag flies for associations and societies based on a shared but ultimately fabricated premise, such as any company or nation.\"",
         "sha1": "574aef3853c59daf725f4d3c57bea3f1eaef342c"
     },
     {
@@ -489,6 +519,7 @@
         "ATK": 2,
         "HP": 2,
         "rules_text_1": "Frenzy 1 (Gets +1 ATK on your turn.)",
+        "flavor_text": "Quick to slice fruit. Quick to slice YOU.",
         "sha1": "d8a8484af0d0d2680b320a2e4ae6f014573d9936"
     },
     {
@@ -501,6 +532,7 @@
         "cost": 1,
         "target_icon": true,
         "rules_text_1": "Deal 1 damage to a patroller.",
+        "flavor_text": "Practice mastery of all things, large and small.",
         "sha1": "b0b4df7bdf4a6d26ba7b678853e5fad7ecc758cd"
     },
     {
@@ -513,6 +545,7 @@
         "cost": 2,
         "target_icon": true,
         "rules_text_1": "Put a +1/+1 rune on a friendly unit or hero that doesn't have a +1/+1 rune.",
+        "flavor_text": "Bigger is better, and slightly bigger is slightly better.",
         "sha1": "e5fa29c83de372a30e9ec462ec12b529d4264902"
     },
     {
@@ -659,7 +692,8 @@
         "tech_level": 0,
         "HP": 4,
         "rules_text_1": "Detects stealth/invisible once per turn.",
-        "rules_text_2": "Deals 1 damage to each attacker (that it can see)."
+        "rules_text_2": "Deals 1 damage to each attacker (that it can see).",
+        "rules_text_3": "Anti-air (?)"
     },
     {
         "name": "Surplus",

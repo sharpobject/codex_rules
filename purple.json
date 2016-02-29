@@ -296,7 +296,7 @@
         "tech_level": 2,
         "ATK": 4,
         "HP": 5,
-        "rules_text_1": "Haste, Frenzy 1 (Gets +1 ATK on your turn.)",
+        "rules_text_1": "Haste",
         "rules_text_2": "Attacks: Draw a card.",
         "sha1": "95b3bd1fca40a9bb52c4a6dfa240168c3761744e"
     },
@@ -323,13 +323,13 @@
         "color": "Purple",
         "spec": "Present",
         "type": "Unit",
-        "subtype": "Mech Soldier",
+        "subtype": "Mech",
         "cost": 6,
         "target_icon": false,
         "tech_level": 2,
         "ATK": 5,
         "HP": 5,
-        "rules_text_1": "Indestructible (If this would die, exhaust it and remove all damage from it instead. You can't sacrifice it.)",
+        "rules_text_1": "Indestructible (If this would die, exhaust it and remove all damage and attachments from it instead. You can't sacrifice it.)",
         "sha1": "d63b0d46fa75e738d44f8d55e9d7104f57915c7a"
     },
     {
@@ -463,7 +463,7 @@
         "ATK": 9,
         "HP": 7,
         "rules_text_1": "Forecast 6, Haste, untargetable",
-        "rules_text_2": "Sacrifice a unit, hero, worker, or building → Remove a time rune from Omegacron while it's forecasted.",
+        "rules_text_2": "Sacrifice a unit, hero, worker, or upgrade → Remove a time rune from Omegacron while it's forecasted.",
         "pedantry": "Why is Haste capitali\\zed?",
         "sha1": "e2f3e9ed188abcdcced7f79c6d09d0a798986251"
     },
@@ -534,7 +534,7 @@
         "HP": 6,
         "rules_text_1": "Flying, resist 1",
         "rules_text_2": "Arrives: Summon five 1/1 purple Stinger tokens with flying.",
-        "rules_text_3": "① → Re-summon a lost Stringer (limit: 5 per Hive.)",
+        "rules_text_3": "① → Re-summon a lost Stinger (limit: 5 per Hive.)",
         "rules_text_4": "Leaves: Sacrifice five Stingers.",
         "sha1": "4ea46be633160dc402924ef168202681a17169bf"
     },
@@ -665,7 +665,7 @@
         "tech_level": 0,
         "ATK": 1,
         "HP": 1,
-        "rules_text_1": "Indestructible (If this would die, exhaust it and remove all damage from it instead. You can't sacrifice it.)",
+        "rules_text_1": "Indestructible (If this would die, exhaust it and remove all damage and attachments from it instead. You can't sacrifice it.)",
         "rules_text_2": "When you have a tech II unit (even a forecasted one), trash Hardened Mox.",
         "sha1": "3c452430b95348bc1b6499ec7ae158bc29693789"
     },
@@ -678,7 +678,7 @@
         "cost": 2,
         "target_icon": false,
         "tech_level": 0,
-        "rules_text_1": "Your non-flying, non-token units get +1 ATK.",
+        "rules_text_1": "Your non-token Soldiers and Mystics get +1 ATK.",
         "sha1": "4536922fed7a4bb896d654af27240e9cda4124e8"
     },
     {
