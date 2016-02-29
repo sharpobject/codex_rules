@@ -11,29 +11,24 @@ Fuzz Cuddles (healing changed)
 
 Green:
 Argagarg Garg (midband can target enemy units)
-Final Showdown (white ninjas -> green hunters)
 Wandering Mimic (art)
 Feral Strike (reworked)
 Spirit of the Panda (healing changed)
 Giant Panda (3/4 for 4 -> 2/4 for 3)
 
 Purple:
-Hardened Mox (indestructible clarified)
 Research & Development (1 to draw 10 -> 2 to draw 5)
-Immortal (indestructible clarified)
 Assimilate ("building card")
 Void Star (art)
 Hive ("lost stinger")
 
 Blue:
-Injunction (art)
 Community Service (art)
 Elite Training (art)
 General's Hammer (art)
 The Art of War (art)
 Air Hammer (ability rephrased)
 Patriot Gryphon (10 -> 8 cost)
-Reteller of Truths (First two times)
 Spectral Tiger (art)
 Spectral Roc (3 cost -> 4 cost)
 
