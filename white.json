@@ -64,7 +64,7 @@
         "ATK": 3,
         "HP": 2,
         "rules_text_1": "Arrives: You may put a Rambasa Twin from your codex into play.",
-        "rules_text_2": "The first time a Rambasa Twin dies each turn, return him to your codex.",
+        "rules_text_2": "The first time a Rambasa Twin dies each turn, return him to his owner's codex.",
         "sha1": "df160aa3d3181aa809adeb6e9a74058fe1fc86b4"
     },
     {
