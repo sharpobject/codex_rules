@@ -23,7 +23,7 @@ Frenzy
 (Two Step) units chosen at effect creation get +ATK and +HP while they are all in play
 (Star-crossed Starlet) this unit gets +1 ATK for each damage on it
 
-<midori midband +2/+2 and behind the ferns go here>
+<midori midband, bluecoat musketeer, and behind the ferns go here>
 
 (River Montoya) your tech 0 units cost 1 less to play
 (Maestro) your virtuosos cost 0 to play
