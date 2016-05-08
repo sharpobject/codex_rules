@@ -70,6 +70,7 @@ Game = class(function(self, specs1, specs2)
     self.field = {}
     for idx, player in ipairs(self.players) do
       self:to_field(player:make_card("NBABBA"))
+      player.hand[#player.hand+1] = player:make_card("NTOUDN")
     end
     self.extra_turns = 0
     self.high_priority_triggers = Queue()
@@ -106,16 +107,26 @@ function Game:start_turn(idx)
   self.next_steps:push("STEP_UPKEEP")
 end
 
-local function get_card_owner(card_uid)
+local function uid_to_owner(card_uid)
   return tonumber(card_uid[7])
 end
 
-function Game:to_field(card)
+local function uid_to_identity(card_uid)
+  return card_uid:sub(1,6)
+end
+
+local function is_token(card)
+  card = id_to_card[uid_to_identity(card.uid)]
+  return card.starting_zone == "trash" and
+      card.tech_building == nil and card.addon == nil
+end
+
+function Game:to_field(card, controller)
   if type(card) == "string" then
     card = {uid = card}
   end
   if not card.controller then
-    card.controller = get_card_owner(card)
+    card.controller = uid_to_owner(card.uid)
   end
   self.field[#self.field+1] = card
 end
@@ -190,13 +201,15 @@ function Game:get_derived_state()
     for _,zone in ipairs({"codex", "discard", "deck", "hand", "command", "future"}) do
       ret.players[i][zone] = {}
       for j=1,#self.players[i][zone] do
-        ret.players[i][zone][j] = get_basic_card_state(self.players[i][zone][j])
+        local card = get_basic_card_state(self.players[i][zone][j])
+        ret.players[i][zone][j] = card
       end
     end
   end
   ret.field = {}
   for i=1,#self.field do
-    ret.field[i] = get_basic_card_state(self.field[i])
+    local card = get_basic_card_state(self.field[i])
+    ret.field[i] = card
   end
 
   -- TODO: apply +1/+1 counters, -1/-1 counters,
@@ -206,7 +219,11 @@ function Game:get_derived_state()
   return ret
 end
 
-local function get_state_based_actions(state)
+function Game:get_state_based_actions()
+  local state = self.derived_state
+  local bail_out = false
+  local changes = {}
+
   --[[
     Only the first section that has any actions gets its actions run.
 
@@ -230,15 +247,70 @@ local function get_state_based_actions(state)
   --]]
 
 
-  -- TODO
   -- If a permanent is in play, ensure that it has an "arrived" timestamp,
   -- a "came under control" timestamp, a "established identity" timestamp,
   -- and for heroes mid level or higher, also timestamps for their mid and
   -- max level abilities.
   -- If the controller changed, the identity changed, or the hero leveled
   -- down, update those timestamps appropriately.
+  local timestamp = nil
+
   for k,v in pairs(state.field) do
-    
+    if not v.arrived_time then
+      if not timestamp then
+        bail_out = true
+        timestamp = self:get_timestamp()
+      end
+      changes[#changes+1] = v.uid
+      self.field[k].arrived_time = timestamp
+    end
+
+    if not v.controller then
+      if not timestamp then
+        bail_out = true
+        timestamp = self:get_timestamp()
+      end
+      v.controller = uid_to_owner(v.uid)
+      self.field[k].controller = v.controller
+    end
+
+    if (not v.controller_time) or v.controller_time.controller ~= v.controller then
+      if not timestamp then
+        bail_out = true
+        timestamp = self:get_timestamp()
+      end
+      changes[#changes+1] = v.uid
+      v.controller_time = {controller = v.controller, time = timestamp}
+      self.field[k].controller_time = v.controller_time
+    end
+
+    if not v.identity then
+      if not timestamp then
+        bail_out = true
+        timestamp = self:get_timestamp()
+      end
+      v.identity = uid_to_identity(v.uid)
+      self.field[k].identity = v.identity
+    end
+
+    if (not v.identity_time) or v.identity_time.identity ~= v.identity then
+      if not timestamp then
+        bail_out = true
+        timestamp = self:get_timestamp()
+      end
+      changes[#changes+1] = v.uid
+      v.identity_time = {identity = v.identity, time = timestamp}
+      self.field[k].identity_time = v.identity_time
+    end
+
+    -- TODO: Stuff about hero midband/max band timestamps
+    if false then
+    end
+  end
+
+  if bail_out then
+    print("Set timestamps for cards: "..json.encode(changes))
+    return true
   end
 
 
@@ -252,14 +324,30 @@ local function get_state_based_actions(state)
   -- is just for Legendary Units)
 
 
-  -- TODO
-  -- If a token is in any zone other than in play, it is trashed.
+  -- If a token is in any zone other than in play or the future it is trashed.
+  for i=1,#state.players do
+    for _,zone in ipairs({"codex", "discard", "deck", "hand", "command"}) do
+      for j=#state.players[i][zone],1,-1 do
+        if is_token(state.players[i][zone][j]) then
+          bail_out = true
+          changes[#changes+1] = self.players[i][zone][j]
+          table.remove(self.players[i][zone], j)
+        end
+      end
+    end
+  end
+
+  if bail_out then
+    print("Trashed tokens for being in the wrong zone: "..json.encode(changes))
+    return true
+  end
 
 
   -- TODO
   -- If a player has no base, the game is over.
   -- Note that some other abilities can cause the game to end,
   -- So this isn't the only place where game over happens.
+  -- Update: I'll just make those abilities destroy your base whatever man.
 
 
   -- TODO
@@ -269,8 +357,51 @@ local function get_state_based_actions(state)
   -- Aura effects (like Soul Stone) kill the attached spell card on expiration.
 
 
-  -- TODO
-  -- If a unit or hero has both +1/+1 and -1/-1 runes, they cancel
+  -- If a permanent has both +1/+1 and -1/-1 runes, they cancel
+  for k,v in pairs(state.field) do
+    if v.runes and v.runes.plus and v.runes.minus then
+      bail_out = true
+      changes[#changes+1] = v.uid
+      local net_amount = v.runes.plus - v.runes.minus
+      if net_amount > 0 then
+        v.runes.plus = net_amount
+        v.runes.minus = 0
+      else
+        v.runes.plus = 0
+        v.runes.minus = -net_amount
+      end
+    end
+  end
+
+  if bail_out then
+    print("Cancelled +1/+1 and -1/-1 runes for cards: "..json.encode(changes))
+    return true
+  end
+
+  -- If a permanent has 0 of a type of rune, stop tracking it.
+  for k,v in pairs(state.field) do
+    if v.runes then
+      local keep_runes = false
+      for rune_type, count in pairs(v.runes) do
+        if count == 0 then
+          bail_out = true
+          changes[#changes+1] = v.uid
+          self.field[k].runes[rune_type] = nil
+        else
+          keep_runes = true
+        end
+      end
+      if not keep_runes then
+        self.field[k].runes = nil
+      end
+    end
+  end
+
+  if bail_out then
+    print("Stopped tracking some runes for cards: "..json.encode(changes))
+    return true
+  end
+
 
 
   -- TODO
@@ -298,22 +429,31 @@ local function get_state_based_actions(state)
   --]]
 
 
-  -- TODO
   -- If a unit or hero is marked as "just took combat damage"
   -- or "just took deathtouch damage", unmark it.
-end
+  for k,v in pairs(state.field) do
+    if v.just_took_combat_damage or v.just_took_deathtouch_damage then
+      bail_out = true
+      self.field[k].just_took_combat_damage = false
+      self.field[k].just_took_deathtouch_damage = false
+      changes[#changes+1] = v.uid
+    end
+  end
 
-function Game:update()
-  local state = self:get_derived_state()
-  local actions = get_sate_based_actions(state)
-  while actions do
-    -- TODO
-    -- If the game is over, the game is over
-
-    self:apply_state_based_actions(actions)
-    state = self:get_derived_state()
-    actions = get_sate_based_actions(state)
+  if bail_out then
+    print("Unset combat damage indicator for cards: "..json.encode(changes))
+    return true
   end
 end
 
-print(json.encode(Game({"bashing"},{"finesse"}):get_derived_state()))
+function Game:update()
+  self.derived_state = self:get_derived_state()
+  while self:get_state_based_actions() do
+    self.derived_state = self:get_derived_state()
+  end
+end
+
+local game = Game({"bashing"}, {"finesse"})
+game:update()
+
+print(json.encode(game:get_derived_state()))
