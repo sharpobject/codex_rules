@@ -1,6 +1,7 @@
 [
     {
         "filename": "bashing_spell_a.jpg",
+        "sirlins_filename": "0021_wrecking_ball.jpg",
         "name": "Wrecking Ball",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -15,6 +16,7 @@
     },
     {
         "filename": "bashing_spell_b.jpg",
+        "sirlins_filename": "0022_the_boot.jpg",
         "name": "The Boot",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -29,6 +31,7 @@
     },
     {
         "filename": "bashing_spell_c.jpg",
+        "sirlins_filename": "0023_intimidate.jpg",
         "name": "Intimidate",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -43,6 +46,7 @@
     },
     {
         "filename": "bashing_spell_ult.jpg",
+        "sirlins_filename": "0024_final_smash.jpg",
         "name": "Final Smash",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -57,6 +61,7 @@
     },
     {
         "filename": "bashing_tech1_a.jpg",
+        "sirlins_filename": "0013_iron_man.jpg",
         "name": "Iron Man",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -73,6 +78,7 @@
     },
     {
         "filename": "bashing_tech1_b.jpg",
+        "sirlins_filename": "0014_revolver_ocelot.jpg",
         "name": "Revolver Ocelot",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -90,6 +96,7 @@
     },
     {
         "filename": "bashing_tech2_a.jpg",
+        "sirlins_filename": "0015_hired_stomper.jpg",
         "name": "Hired Stomper",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -107,6 +114,7 @@
     },
     {
         "filename": "bashing_tech2_b.jpg",
+        "sirlins_filename": "0016_regular_sized_rhinoceros.jpg",
         "name": "Regular-sized Rhinoceros",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -123,6 +131,7 @@
     },
     {
         "filename": "bashing_tech2_c.jpg",
+        "sirlins_filename": "0017_sneaky_pig.jpg",
         "name": "Sneaky Pig",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -141,6 +150,7 @@
     },
     {
         "filename": "bashing_tech2_d.jpg",
+        "sirlins_filename": "0018_eggship.jpg",
         "name": "Eggship",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -158,6 +168,7 @@
     },
     {
         "filename": "bashing_tech2_e.jpg",
+        "sirlins_filename": "0019_harvest_reaper.jpg",
         "name": "Harvest Reaper",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -175,6 +186,7 @@
     },
     {
         "filename": "bashing_tech3.jpg",
+        "sirlins_filename": "0020_trojan_duck.jpg",
         "name": "Trojan Duck",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -193,6 +205,7 @@
     },
     {
         "filename": "finesse_spell_a.jpg",
+        "sirlins_filename": "0033_harmony.jpg",
         "name": "Harmony",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -208,6 +221,7 @@
     },
     {
         "filename": "finesse_spell_b.jpg",
+        "sirlins_filename": "0034_discord.jpg",
         "name": "Discord",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -222,6 +236,7 @@
     },
     {
         "filename": "finesse_spell_c.jpg",
+        "sirlins_filename": "0035_two_step.jpg",
         "name": "Two Step",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -237,6 +252,7 @@
     },
     {
         "filename": "finesse_spell_ult.jpg",
+        "sirlins_filename": "0036_appel_stomp.jpg",
         "name": "Appel Stomp",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -251,6 +267,7 @@
     },
     {
         "filename": "finesse_tech1_a.jpg",
+        "sirlins_filename": "0025_nimble_fencer.jpg",
         "name": "Nimble Fencer",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -269,6 +286,7 @@
     },
     {
         "filename": "finesse_tech1_b.jpg",
+        "sirlins_filename": "0026_star_crossed_starlet.jpg",
         "name": "Star-Crossed Starlet",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -288,6 +306,7 @@
     },
     {
         "filename": "finesse_tech2_a.jpg",
+        "sirlins_filename": "0027_grounded_guide.jpg",
         "name": "Grounded Guide",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -307,6 +326,7 @@
     },
     {
         "filename": "finesse_tech2_b.jpg",
+        "sirlins_filename": "0028_maestro.jpg",
         "name": "Maestro",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -324,6 +344,7 @@
     },
     {
         "filename": "finesse_tech2_c.jpg",
+        "sirlins_filename": "0029_backstabber.jpg",
         "name": "Backstabber",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -341,6 +362,7 @@
     },
     {
         "filename": "finesse_tech2_d.jpg",
+        "sirlins_filename": "0030_cloud_sprite.jpg",
         "name": "Cloud Sprite",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -358,6 +380,7 @@
     },
     {
         "filename": "finesse_tech2_e.jpg",
+        "sirlins_filename": "0031_leaping_lizard.jpg",
         "name": "Leaping Lizard",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -375,6 +398,7 @@
     },
     {
         "filename": "finesse_tech3.jpg",
+        "sirlins_filename": "0032_blademaster.jpg",
         "name": "Blademaster",
         "starting_zone": "codex",
         "color": "Neutral",
@@ -412,6 +436,7 @@
     },
     {
         "filename": "neutral_card_a.jpg",
+        "sirlins_filename": "0003_timely_messenger.jpg",
         "name": "Timely Messenger",
         "starting_zone": "deck",
         "color": "Neutral",
@@ -429,6 +454,7 @@
     },
     {
         "filename": "neutral_card_b.jpg",
+        "sirlins_filename": "0004_tenderfoot.jpg",
         "name": "Tenderfoot",
         "starting_zone": "deck",
         "color": "Neutral",
@@ -444,6 +470,7 @@
     },
     {
         "filename": "neutral_card_c.jpg",
+        "sirlins_filename": "0005_older_brother.jpg",
         "name": "Older Brother",
         "starting_zone": "deck",
         "color": "Neutral",
@@ -459,6 +486,7 @@
     },
     {
         "filename": "neutral_card_d.jpg",
+        "sirlins_filename": "0006_brick_thief.jpg",
         "name": "Brick Thief",
         "starting_zone": "deck",
         "color": "Neutral",
@@ -476,6 +504,7 @@
     },
     {
         "filename": "neutral_card_e.jpg",
+        "sirlins_filename": "0007_helpful_turtle.jpg",
         "name": "Helpful Turtle",
         "starting_zone": "deck",
         "color": "Neutral",
@@ -492,6 +521,7 @@
     },
     {
         "filename": "neutral_card_f.jpg",
+        "sirlins_filename": "0008_granfalloon_flagbearer.jpg",
         "name": "Granfalloon Flagbearer",
         "starting_zone": "deck",
         "color": "Neutral",
@@ -508,6 +538,7 @@
     },
     {
         "filename": "neutral_card_g.jpg",
+        "sirlins_filename": "0009_fruit_ninja.jpg",
         "name": "Fruit Ninja",
         "starting_zone": "deck",
         "color": "Neutral",
@@ -524,6 +555,7 @@
     },
     {
         "filename": "neutral_card_h.jpg",
+        "sirlins_filename": "0010_spark.jpg",
         "name": "Spark",
         "starting_zone": "deck",
         "color": "Neutral",
@@ -537,6 +569,7 @@
     },
     {
         "filename": "neutral_card_i.jpg",
+        "sirlins_filename": "0011_bloom.jpg",
         "name": "Bloom",
         "starting_zone": "deck",
         "color": "Neutral",
@@ -550,6 +583,7 @@
     },
     {
         "filename": "neutral_card_j.jpg",
+        "sirlins_filename": "0012_wither.jpg",
         "name": "Wither",
         "starting_zone": "deck",
         "color": "Neutral",
@@ -624,7 +658,7 @@
         "name": "Base",
         "starting_zone": "trash",
         "color": "Neutral",
-        "type": "Building",
+        "type": "Tech Building",
         "cost": 0,
         "target_icon": false,
         "tech_level": 0,
@@ -707,6 +741,7 @@
         "rules_text_1": "Upkeep: Draw a card."
     },
     {
+        "filename": "mercenary_token.jpg",
         "name": "Mercenary",
         "starting_zone": "trash",
         "color": "Neutral",

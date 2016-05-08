@@ -146,6 +146,12 @@ local function get_basic_card_state(card)
   ret.subtypes = deepcpy(orig_card.subtypes)
   ret.abilities = deepcpy(orig_card.abilities) or {}
 
+  ret.ongoing = orig_card.ongoing
+  ret.legendary = orig_card.legendary
+  ret.ultimate = orig_card.ultimate
+  ret.tech_building = orig_card.tech_building
+  ret.addon = orig_card.addon
+
   if orig_card.type == "hero" then
     ret.mid_level = orig_card.mid_level
     ret.max_level = orig_card.max_level

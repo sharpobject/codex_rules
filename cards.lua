@@ -256,7 +256,12 @@ for id,card in pairs(id_to_card) do
       card.ongoing = true
     elseif v == "ultimate" then
       card.ultimate = true
+    elseif v == "tech" then
+      card.tech_building = true
+    elseif v == "add-on" then
+      card.addon = true
     elseif v == "minor" then
+      -- Don't actually care about the "minor" supertype
     else
       card.type = v
     end
