@@ -317,3 +317,15 @@ function append(tables)
   end
   return ret
 end
+
+function uniquify(arr)
+  local ret = {}
+  local seen = {}
+  for i=1,#arr do
+    if not seen[arr[i]] then
+      seen[arr[i]] = true
+      ret[#ret+1] = arr[i]
+    end
+  end
+  return ret
+end

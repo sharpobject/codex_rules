@@ -1,6 +1,7 @@
 require("cards")
 require("class")
 require("queue")
+require("util")
 
 Player = class(function(self, specs, idx)
     local main_spec = specs[1]
@@ -37,9 +38,9 @@ Player = class(function(self, specs, idx)
         self.discard[#self.discard+1] = self:make_card(id)
       end
     end
-    for k,v in pairs(self.id_to_next_uid) do
-      self.id_to_next_uid[k] = nil
-    end
+    --for k,v in pairs(self.id_to_next_uid) do
+    --  self.id_to_next_uid[k] = nil
+    --end
     self:draw(5)
   end)
 
@@ -72,6 +73,10 @@ Game = class(function(self, specs1, specs2)
       self:to_field(player:make_card("NBABBA"))
       player.hand[#player.hand+1] = player:make_card("NTOUDN")
     end
+    self:to_field(self.players[1]:make_card("NBAHTB"))
+    self.field[3].runes = {plus=1, minus=1}
+    self.field[3].damage = 99
+    self.field[2].just_took_combat_damage = true
     self.extra_turns = 0
     self.high_priority_triggers = Queue()
     self.triggers = Queue()
@@ -129,6 +134,30 @@ function Game:to_field(card, controller)
     card.controller = uid_to_owner(card.uid)
   end
   self.field[#self.field+1] = card
+end
+
+function Game:process_deaths(uids)
+  uids = arr_to_set(uids)
+  i = 1
+  n = #self.field
+  -- TODO: Replacement effects that replace death
+  -- TODO: Triggered abilities that happen on death
+  -- Probably triggered abilities will work using a general system for
+  -- watching zone transitions, so this needs to make a zone transition
+  -- thing and give that to whatever is listening.
+  -- TODO: When a tech building or add-on dies, its base takes 2 damage.
+  while i <= n do
+    local card = self.field[i]
+    if card.you_are_on_the_way_to_destruction then
+      local owner = uid_to_owner(card.uid)
+      local discard = self.players[owner].discard
+      discard[#discard + 1] = card.uid
+      table.remove(self.field, i)
+      n = n - 1
+    else
+      i = i + 1
+    end
+  end
 end
 
 -- Just takes the internal state of a card and adds
@@ -309,7 +338,7 @@ function Game:get_state_based_actions()
   end
 
   if bail_out then
-    print("Set timestamps for cards: "..json.encode(changes))
+    print("Set timestamps for cards: "..json.encode(uniquify(changes)))
     return true
   end
 
@@ -325,20 +354,42 @@ function Game:get_state_based_actions()
 
 
   -- If a token is in any zone other than in play or the future it is trashed.
+  -- The same is true for tech buildings and addons
   for i=1,#state.players do
     for _,zone in ipairs({"codex", "discard", "deck", "hand", "command"}) do
       for j=#state.players[i][zone],1,-1 do
-        if is_token(state.players[i][zone][j]) then
+        local card = state.players[i][zone][j]
+        if is_token(card) or card.tech_building or card.addon then
           bail_out = true
-          changes[#changes+1] = self.players[i][zone][j]
-          table.remove(self.players[i][zone], j)
+          local token = table.remove(self.players[i][zone], j)
+          changes[#changes+1] = card.uid
         end
       end
     end
   end
 
   if bail_out then
-    print("Trashed tokens for being in the wrong zone: "..json.encode(changes))
+    print("Trashed tokens/tech buildings/addons for being in the wrong zone: "..json.encode(changes))
+    return true
+  end
+
+  -- If a hero is in the discard, it goes to command on cooldown.
+  for i=1,#state.players do
+    for j=#state.players[i].discard,1,-1 do
+      local card = state.players[i].discard[j]
+      if card.type == "hero" then
+        bail_out = true
+        local uid = table.remove(self.players[i].discard, j)
+        -- TODO: Cooldown should be 2 if the hero dies on its own turn.
+        local hero = {uid = uid, cooldown = 1}
+        self.players[i].command[#self.players[i].command + 1] = hero
+        changes[#changes+1] = uid
+      end
+    end
+  end
+
+  if bail_out then
+    print("Moved dead heroes to command zone: "..json.encode(changes))
     return true
   end
 
@@ -356,27 +407,6 @@ function Game:get_state_based_actions()
   -- Effects that granted armor take armor away on expiration.
   -- Aura effects (like Soul Stone) kill the attached spell card on expiration.
 
-
-  -- If a permanent has both +1/+1 and -1/-1 runes, they cancel
-  for k,v in pairs(state.field) do
-    if v.runes and v.runes.plus and v.runes.minus then
-      bail_out = true
-      changes[#changes+1] = v.uid
-      local net_amount = v.runes.plus - v.runes.minus
-      if net_amount > 0 then
-        v.runes.plus = net_amount
-        v.runes.minus = 0
-      else
-        v.runes.plus = 0
-        v.runes.minus = -net_amount
-      end
-    end
-  end
-
-  if bail_out then
-    print("Cancelled +1/+1 and -1/-1 runes for cards: "..json.encode(changes))
-    return true
-  end
 
   -- If a permanent has 0 of a type of rune, stop tracking it.
   for k,v in pairs(state.field) do
@@ -398,18 +428,36 @@ function Game:get_state_based_actions()
   end
 
   if bail_out then
-    print("Stopped tracking some runes for cards: "..json.encode(changes))
+    print("Stopped tracking some runes for cards: "..json.encode(uniquify(changes)))
     return true
   end
 
+  -- If a permanent has both +1/+1 and -1/-1 runes, they cancel
+  for k,v in pairs(state.field) do
+    if v.runes and v.runes.plus and v.runes.minus then
+      bail_out = true
+      changes[#changes+1] = v.uid
+      local net_amount = v.runes.plus - v.runes.minus
+      if net_amount > 0 then
+        self.field[k].runes.plus = net_amount
+        self.field[k].runes.minus = 0
+      else
+        self.field[k].runes.plus = 0
+        self.field[k].runes.minus = -net_amount
+      end
+    end
+  end
 
+  if bail_out then
+    print("Cancelled +1/+1 and -1/-1 runes for cards: "..json.encode(changes))
+    return true
+  end
 
-  -- TODO
   --[[
     If a unit or hero or building has damage marked on it greater than or
-      equal to its HP, it dies.
+      equal to its HP, it is on the way to destruction.
     If a unit or hero has just taken damage from a thing that has deathtouch,
-      it dies.
+      it is on the way to destruction.
     The following two things apply to deaths in general, but we have to
       do them here to make sure we don't make no-op state based actions.
       (that would cause an infinite loop)
@@ -427,15 +475,43 @@ function Game:get_state_based_actions()
           it goes to the owner's hand.
         If it is indestructible you do the indestructible thing instead.
   --]]
+  for k,v in pairs(state.field) do
+    if (v.HP <= 0 or (v.HP and v.damage and v.damage >= v.HP))
+        and not v.you_are_on_the_way_to_destruction then
+      -- TODO:
+      -- Stuff about glaxx and indestructible
+      bail_out = true
+      changes[#changes+1] = v.uid
+      self.field[k].you_are_on_the_way_to_destruction = true
+    end
+  end
 
+  if bail_out then
+    print("Marked lethal damage for cards: "..json.encode(changes))
+    return true
+  end
+
+  -- If anything is on the way to destruction, it dies.
+  for k,v in pairs(state.field) do
+    if v.you_are_on_the_way_to_destruction then
+      bail_out = true
+      changes[#changes+1] = v.uid
+    end
+  end
+
+  if bail_out then
+    print("Killing cards: "..json.encode(changes))
+    self:process_deaths(changes)
+    return true
+  end
 
   -- If a unit or hero is marked as "just took combat damage"
   -- or "just took deathtouch damage", unmark it.
   for k,v in pairs(state.field) do
     if v.just_took_combat_damage or v.just_took_deathtouch_damage then
       bail_out = true
-      self.field[k].just_took_combat_damage = false
-      self.field[k].just_took_deathtouch_damage = false
+      self.field[k].just_took_combat_damage = nil
+      self.field[k].just_took_deathtouch_damage = nil
       changes[#changes+1] = v.uid
     end
   end
