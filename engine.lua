@@ -14,6 +14,7 @@ Player = class(function(self, specs, idx)
     self.command = {}
     self.patrol = {}
     self.future = {}
+    self.gold = 0
     self.workers = 4
     if self.idx > 1 then
       self.workers = 5
@@ -85,6 +86,7 @@ Game = class(function(self, specs1, specs2)
     self.active_player = 0
     self:start_turn(1)
   end)
+require("steps")(Game)
 
 function Player:make_card(card_id)
   local this_uid = self.id_to_next_uid[card_id] or 1
