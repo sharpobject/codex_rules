@@ -2,11 +2,14 @@ require("cards")
 require("class")
 require("queue")
 require("util")
+local dipswitches = require("dipswitches")
+local Action = require("action")
 
 Player = class(function(self, specs, idx)
     local main_spec = specs[1]
     assert(main_spec, "No specs provided")
     self.idx = idx
+    
     self.codex = {}
     self.discard = {}
     self.deck = {}
@@ -14,11 +17,15 @@ Player = class(function(self, specs, idx)
     self.command = {}
     self.patrol = {}
     self.future = {}
+
+    self.spec_choices = {}
+    
     self.gold = 0
     self.workers = 4
     if self.idx > 1 then
       self.workers = 5
     end
+    
     self.id_to_next_uid = {}
     for _,spec in ipairs(specs) do
       assert(spec_to_color[spec], spec .. " is not a spec")
@@ -33,15 +40,40 @@ Player = class(function(self, specs, idx)
         end
       end
     end
+
     local main_color = spec_to_color[main_spec]
     for id, card in pairs(id_to_card) do
       if card.color == main_color and card.starting_zone == "deck" then
         self.discard[#self.discard+1] = self:make_card(id)
       end
     end
+
+    for id, card in pairs(id_to_card) do
+      if card.type == "building" and card.starting_zone == "command" then
+        self.command[#self.command+1] = self:make_card(id)
+        self.command[#self.command+1] = self:make_card(id)
+      end
+    end
+
+    --[[local colors = {}
+    for _,spec in pairs(specs) do
+      local color = spec_to_color[spec]
+      if color ~= "neutral" then
+        colors[color] = true
+      end
+    end
+    local ncolors = 0
+    for k,v in pairs(colors) do
+      ncolors = ncolors + 1
+    end
+    if ncolors > 1 then
+      self.multicolor = true
+    end--]]
+
     --for k,v in pairs(self.id_to_next_uid) do
     --  self.id_to_next_uid[k] = nil
     --end
+
     self:draw(5)
   end)
 
@@ -66,6 +98,10 @@ function Player:draw(n)
   end
 end
 
+function Player:gain_gold(n)
+  self.gold = math.min(self.gold + n, dipswitches.MAX_GOLD)
+end
+
 Game = class(function(self, specs1, specs2)
     self.next_timestamp = 1
     self.players = {Player(specs1, 1), Player(specs2, 2)}
@@ -84,6 +120,7 @@ Game = class(function(self, specs1, specs2)
     self.low_priority_triggers = Queue()
     self.next_steps = Queue()
     self.active_player = 0
+    self.worker_cost = dipswitches.WORKER_COST
     self:start_turn(1)
   end)
 require("steps")(Game)
@@ -111,7 +148,10 @@ end
 
 function Game:start_turn(idx)
   self.active_player = idx
-  self.next_steps:push("STEP_UPKEEP")
+  self.made_a_worker_this_turn = nil
+  self.made_a_building_this_turn = nil
+  self.this_turn_time = self:get_timestamp()
+  self.next_steps:push("STEP_READY")
 end
 
 local function uid_to_owner(card_uid)
@@ -124,8 +164,16 @@ end
 
 local function is_token(card)
   card = id_to_card[uid_to_identity(card.uid)]
-  return card.starting_zone == "trash" and
-      card.tech_building == nil and card.addon == nil
+  return card.starting_zone == "trash"
+end
+
+function Game:get_addon(player_idx)
+  local state = self.derived_state
+  for k,v in pairs(state.field) do
+    if v.addon and v.controller == player_idx then
+      return v.uid
+    end
+  end
 end
 
 function Game:to_field(card, controller)
@@ -176,6 +224,8 @@ local function get_basic_card_state(card)
   local card_id = ret.uid:sub(1, 6)
   local orig_card = id_to_card[card_id]
 
+  ret.id = card_id
+
   ret.type = orig_card.type
   ret.ATK = orig_card.ATK
   ret.HP = orig_card.HP
@@ -193,6 +243,10 @@ local function get_basic_card_state(card)
   ret.ultimate = orig_card.ultimate
   ret.tech_building = orig_card.tech_building
   ret.addon = orig_card.addon
+
+  if card.ready == nil then
+    ret.ready = true
+  end
 
   if orig_card.type == "hero" then
     ret.mid_level = orig_card.mid_level
@@ -229,6 +283,7 @@ function Game:get_derived_state()
   ret.players = {}
   for i=1,#self.players do
     ret.players[i] = {}
+    ret.players[i].can_play_tech = {[0] = true}
     for _,zone in ipairs({"codex", "discard", "deck", "hand", "command", "future"}) do
       ret.players[i][zone] = {}
       for j=1,#self.players[i][zone] do
@@ -241,6 +296,8 @@ function Game:get_derived_state()
   for i=1,#self.field do
     local card = get_basic_card_state(self.field[i])
     ret.field[i] = card
+    -- TODO: not sure what I was thinking with this one
+    -- if card.id == ""
   end
 
   -- TODO: apply +1/+1 counters, -1/-1 counters,
@@ -358,7 +415,7 @@ function Game:get_state_based_actions()
   -- If a token is in any zone other than in play or the future it is trashed.
   -- The same is true for tech buildings and addons
   for i=1,#state.players do
-    for _,zone in ipairs({"codex", "discard", "deck", "hand", "command"}) do
+    for _,zone in ipairs({"codex", "discard", "deck", "hand"}) do
       for j=#state.players[i][zone],1,-1 do
         local card = state.players[i][zone][j]
         if is_token(card) or card.tech_building or card.addon then
@@ -382,8 +439,11 @@ function Game:get_state_based_actions()
       if card.type == "hero" then
         bail_out = true
         local uid = table.remove(self.players[i].discard, j)
-        -- TODO: Cooldown should be 2 if the hero dies on its own turn.
+        -- Cooldown should be 2 if the hero dies on its own turn.
         local hero = {uid = uid, cooldown = 1}
+        if i == self.active_player then
+          hero.cooldown = 2
+        end
         self.players[i].command[#self.players[i].command + 1] = hero
         changes[#changes+1] = uid
       end
@@ -392,6 +452,25 @@ function Game:get_state_based_actions()
 
   if bail_out then
     print("Moved dead heroes to command zone: "..json.encode(changes))
+    return true
+  end
+
+  -- Lame hack: Players play tech buildings and addons from their command zone.
+  -- So put those from discard to command too.
+  for i=1,#state.players do
+    for j=#state.players[i].discard,1,-1 do
+      local card = state.players[i].discard[j]
+      if card.type == "building" and card.starting_zone == "command" then
+        bail_out = true
+        local uid = table.remove(self.players[i].discard, j)
+        self.players[i].command[#self.players[i].command + 1] = uid
+        changes[#changes+1] = uid
+      end
+    end
+  end
+
+  if bail_out then
+    print("Moved dead tech buildings and addons to command zone: "..json.encode(changes))
     return true
   end
 
@@ -466,7 +545,7 @@ function Game:get_state_based_actions()
     If it has the Glaxx ability and its controller has gold and
       it has not just taken combat damage, it doesn't die.
     If it is indestructible and has 0 or less HP and is already tapped,
-      and has no damage, nothing happens.
+      and has no damage or attachements, nothing happens.
 
     Here are some other things that replace dying in general, but which
       we DON'T need code for here. The code for this stuff should go
@@ -478,7 +557,8 @@ function Game:get_state_based_actions()
         If it is indestructible you do the indestructible thing instead.
   --]]
   for k,v in pairs(state.field) do
-    if (v.HP <= 0 or (v.HP and v.damage and v.damage >= v.HP))
+    if (v.HP <= 0 or (v.HP and v.damage and v.damage >= v.HP)
+        or v.just_took_deathtouch_damage)
         and not v.you_are_on_the_way_to_destruction then
       -- TODO:
       -- Stuff about glaxx and indestructible
@@ -522,16 +602,46 @@ function Game:get_state_based_actions()
     print("Unset combat damage indicator for cards: "..json.encode(changes))
     return true
   end
+
+  -- TODO: look for state triggers
+  -- These aren't really state-based actions (?) but they should happen here
+  -- more or less. Like, any time you finish fixing the state, and there's a guy
+  -- with a Hardened Mox and a Tech 2 unit, and the Hardened Mox trigger isn't in
+  -- the queue yet, it should go in the queue.
 end
 
-function Game:update()
-  self.derived_state = self:get_derived_state()
-  while self:get_state_based_actions() do
+function Game:update(input)
+  local prompt = false
+  while not prompt do
     self.derived_state = self:get_derived_state()
+    while self:get_state_based_actions() do
+      self.derived_state = self:get_derived_state()
+    end
+    local action = nil
+    if self.high_priority_triggers:len() > 0 then
+      action = self.high_priority_triggers:pop()
+    elseif self.triggers:len() > 0 then
+      action = self.triggers:pop()
+    elseif self.low_priority_triggers:len() > 0 then
+      action = self.low_priority_triggers:pop()
+    elseif self.next_steps:len() > 0 then
+      action = self.next_steps:pop()
+    end
+    assert(action, "RAN OUT OF STUFF TO DO")
+    action = Action(action)
+    prompt = action:prompt(self, input)
+    if not prompt then
+      print(action, self, input)
+      print("RUNNING ".. action.id)
+      action:run(self, input)
+      input = nil
+    end
   end
+  return prompt
 end
 
 local game = Game({"bashing"}, {"finesse"})
-game:update()
+local prompt = game:update()
+print(json.encode(prompt))
 
-print(json.encode(game:get_derived_state()))
+--print(json.encode(game:get_derived_state()))
